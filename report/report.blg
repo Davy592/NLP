@@ -1,0 +1,69 @@
+This is BibTeX, Version 0.99d
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: report.aux
+Reallocating 'name_of_file' (item size: 1) to 9 items.
+The style file: IEEEtran.bst
+Reallocating 'name_of_file' (item size: 1) to 13 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'wiz_functions' (item size: 4) to 6000 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Database file #1: bibliografia.bib
+-- IEEEtran.bst version 1.14 (2015/08/26) by Michael Shell.
+-- http://www.michaelshell.org/tex/ieeetran/bibtex/
+-- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
+Warning--empty booktitle in AbusiveLanguageDetection2016
+Warning--empty journal in BERT2018
+Warning--empty journal in RoBERTa2019
+Warning--empty booktitle in HateSpeechDetectionSurvey2017
+Warning--empty journal in ToxicityDetectionContext2021
+Warning--empty journal in EVALITA2018
+Warning--empty booktitle in WhoseThumb2006
+Warning--empty booktitle in PersonalityTraitDetectionBERT2020
+Warning--empty journal in BLEU2002
+Warning--empty booktitle in ROUGE2004
+
+Done.
+You've used 13 entries,
+            4087 wiz_defined-function locations,
+            901 strings with 10051 characters,
+and the built_in function-call counts, 8074 in all, are:
+= -- 548
+> -- 267
+< -- 36
++ -- 136
+- -- 57
+* -- 399
+:= -- 1191
+add.period$ -- 26
+call.type$ -- 13
+change.case$ -- 13
+chr.to.int$ -- 81
+cite$ -- 23
+duplicate$ -- 631
+empty$ -- 708
+format.name$ -- 69
+if$ -- 1855
+int.to.chr$ -- 0
+int.to.str$ -- 13
+missing$ -- 128
+newline$ -- 62
+num.names$ -- 13
+pop$ -- 368
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 2
+skip$ -- 579
+stack$ -- 0
+substring$ -- 204
+swap$ -- 445
+text.length$ -- 9
+text.prefix$ -- 0
+top$ -- 5
+type$ -- 13
+warning$ -- 10
+while$ -- 29
+width$ -- 15
+write$ -- 125
+(There were 10 warnings)
