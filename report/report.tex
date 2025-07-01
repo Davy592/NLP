@@ -26,7 +26,8 @@
 \IEEEauthorblockN{Davide Cirilli}
 \IEEEauthorblockA{
 Università degli Studi di Bari Aldo Moro \\
-Email: d.cirilli2@studenti.uniba.it}
+Email: d.cirilli2@studenti.uniba.it \\
+Repo: \url{https://github.com/Davy592/NLP} }
 }
 
 
@@ -52,15 +53,15 @@ Our work aims to contribute to this challenge by exploring systems that combine 
 
 The detection of toxicity and abusive language in online conversations has been widely explored, especially in English. Early approaches relied on machine learning classifiers such as SVM and Naive Bayes with hand-crafted features (e.g., n-grams, lexicons of offensive terms) to identify hate speech and offensive content \cite{AbusiveLanguageDetection2016} \cite{AutomatedHateSpeech2017}. More recent work leverages transformer-based models like BERT \cite{BERT2018} and RoBERTa \cite{RoBERTa2019}, showing significant improvements over traditional methods, particularly in capturing implicit and contextual toxicity \cite{HateSpeechDetectionSurvey2017}. Studies like \cite{ToxicityDetectionContext2021} highlight the importance of conversational context, noting that some messages are perceived as toxic only in relation to previous dialogue turns.
 
-In the Italian language, projects such as EVALITA \cite{EVALITA2018} provided annotated datasets for hate speech detection, mostly focused on Twitter data. These efforts demonstrated the potential of both traditional models and fine-tuned multilingual transformers (e.g., XLM-R) for Italian toxicity detection \cite{ResourcesBenchmarkHateSpeech2021}.
+In the Italian language, projects such as EVALITA \cite{EVALITA2018} provided annotated datasets for hate speech detection, mostly focused on Twitter data. These efforts demonstrated the potential of both traditional models and fine-tuned multilingual transformers for Italian toxicity detection \cite{ResourcesBenchmarkHateSpeech2021}.
 
-For personality detection, initial studies applied linguistic and psychological features (e.g., LIWC categories, stylistic markers) with classifiers like SVM to predict Big Five traits \cite{PersonalityRecognitionConversationText2007} \cite{WhoseThumb2006}. More recent approaches incorporate deep learning, using RNNs, CNNs, and transformer embeddings to infer personality traits from social media text \cite{PersonalityTraitDetectionBERT2020}. While many studies target English data, personality detection in Italian conversational data remains largely underexplored.
+For personality detection, initial studies applied linguistic and psychological features (e.g., LIWC categories, stylistic markers) with classifiers like SVM to predict Big Five traits \cite{PersonalityRecognitionConversationText2007} \cite{WhoseThumb2006}. More recent approaches incorporate deep learning to infer personality traits from social media text \cite{PersonalityTraitDetectionBERT2020}. While many studies target English data, personality detection in Italian conversational data remains largely underexplored.
 
 Our work extends this literature by addressing both toxicity and personality analysis simultaneously in Italian dialogues, leveraging transformer models to capture conversational context and personality-driven toxic behaviors in a unified system.
 
 \section{Dataset preprocessing and Data augmentation}
 
-In this section, we describe the dataset construction process, which involved integrating an existing toxic conversation dataset with a newly generated non-toxic conversation dataset. The goal was to create a balanced corpus that captures both toxic and healthy relationship dynamics in Italian conversations, enabling effective training and evaluation of toxicity detection models.
+In this section, we describe the dataset construction process, which involved integrating an existing toxic conversation dataset with a newly generated non-toxic conversation dataset. The goal was to create a balanced corpus that captures both toxic and healthy relationship dynamics in Italian conversations.
 
 \subsection{Dataset preprocessing}
 
@@ -69,13 +70,11 @@ First of all, we applied a preprocessing step to the original dataset containing
 \begin{itemize}
     \item \textbf{Standardization and cleaning:} We removed incomplete rows with missing names or conversation fields and excluded entries with irrelevant or malformed data. Names of participants were standardized to title case to ensure consistency.
     
-    \item \textbf{Extraction of toxic sentences:} From the explanation field accompanying each conversation, we programmatically extracted the most toxic sentence using regular expressions. If no toxic sentence was present, we marked it as ``N/A''.
+    \item \textbf{Extraction of toxic sentences:} From the explanation field accompanying each conversation, we programmatically extracted the most toxic sentence using regular expressions.
     
     \item \textbf{Conversation reformatting:} We reformatted conversations using a hierarchical parsing logic. The system first tried to extract messages enclosed in quotation marks. If unavailable, it attempted to split the text using speaker labels (e.g., \texttt{Name:}) or speaker names. This aimed to segment and clean the dialogues effectively.
     
-    \item \textbf{Whitespace and symbol normalization:} Excessive spaces and inconsistent symbols (e.g., different types of quotation marks or angle brackets) were normalized to improve text uniformity and facilitate further processing.
-    
-    \item \textbf{Final selection and export:} After cleaning, we retained the essential columns --- including participant names, cleaned conversation, extracted toxic sentence, and explanation --- and saved the resulting dataset in CSV format for subsequent use.
+    \item \textbf{Final selection and export:} After cleaning, we retained the essential columns, including participant names, cleaned conversation, extracted toxic sentence, and explanation.
 \end{itemize}
 
 This structured preprocessing pipeline ensured that the data fed to our models was clean, consistently formatted, and suitable for both toxicity detection and personality analysis tasks.
@@ -86,7 +85,13 @@ To enhance the dataset, we generated a complementary non-toxic conversation data
 
 \subsubsection{Automated generation with Gemini API}
 
-The Gemini API was used to generate a large portion of the non-toxic conversation dataset. The model selected was \texttt{gemini-2.0-flash-lite}, configured with parameters designed to balance creativity and coherence: temperature was set to 1.8 to promote diverse outputs; \texttt{top\_p} was set to 1.0 and \texttt{top\_k} to 0 to allow unrestricted token sampling. Strict safety settings were applied to block inappropriate content, with thresholds set to \texttt{BLOCK\_MEDIUM\_AND\_ABOVE} for all categories: harassment, hate speech, sexually explicit content, and dangerous content.  
+The Gemini API was used to generate a large portion of the non-toxic conversation dataset. The model selected was \texttt{gemini-2.0-flash-lite}, configured with following parameters: 
+\begin{itemize}
+  \item \texttt{temperature} = 1.8: Promotes diverse and creative outputs by encouraging the model to explore a wider range of responses.
+  \item \texttt{top\_p} = 1.0: Ensures all possible tokens are considered, avoiding restrictions on potential outputs.
+  \item \texttt{top\_k} = 0: Disables top-k sampling, allowing unrestricted token sampling.
+\end{itemize}
+Strict safety settings were applied to block inappropriate content, with thresholds set to \texttt{BLOCK\_MEDIUM\_AND\_ABOVE} for all categories: harassment, hate speech, sexually explicit content, and dangerous content.
 
 To guide generation, prompts specified role-based dynamics for each dialogue. The \texttt{person\_couple} classes used were:  
 \begin{itemize}
@@ -98,11 +103,11 @@ To guide generation, prompts specified role-based dynamics for each dialogue. Th
 \end{itemize}
 For each sample, a pair was selected randomly, and the API was instructed to generate a 6--10 turn dialogue reflecting the assigned dynamic, along with unique Italian names for the participants.  
 
-Postprocessing involved parsing the raw response into structured fields: names, role pair, and dialogue. A custom parser extracted the names and cleaned each dialogue turn by removing speaker prefixes and ensuring proper punctuation and casing. Conversations not adhering to the required format (e.g., missing separator, insufficient turns, incomplete lines) were discarded. The data was incrementally written to CSV in append mode, ensuring that header rows were only written once. After generation, additional validation removed duplicates and normalized name casing, while ensuring that dialogue texts contained no residual formatting artifacts or repeated utterances.
+Postprocessing involved parsing the raw response into structured fields: names, role pair, and dialogue. A custom parser extracted the names and cleaned each dialogue turn by removing speaker prefixes and ensuring proper punctuation and casing. Conversations not adhering to the required format (e.g., missing separator, insufficient turns, incomplete lines) were discarded. After generation, additional validation removed duplicates and normalized name casing, while ensuring that dialogue texts contained no residual formatting artifacts or repeated utterances.
 
 \subsubsection{Generation with Google AI Studio}
 
-Google AI Studio was used to complement the API-generated dataset, following the same parameter configuration as Gemini (temperature = 1.8, \texttt{top\_p} = 1.0, \texttt{top\_k} = 0, strict safety thresholds). The platform enabled batch generation with direct control over the response format. Each generated sample followed a predefined schema including:  
+Google AI Studio was used to complement the API-generated dataset, following the same parameter configuration as Gemini. The platform enabled batch generation with direct control over the response format. Each generated sample followed a predefined schema including:  
 \begin{itemize}
     \item \texttt{person\_couple} class (randomly selected from the same list as above)
     \item two invented Italian names
@@ -114,9 +119,9 @@ A key strength of this approach was the high structural consistency of the gener
 
 \subsubsection{Postprocessing and integration}
 
-Once generated, all data (from both sources) underwent additional processing. Conversations were checked for format consistency, proper turn alternation, and minimal length. Names were normalized (first letter uppercase, no trailing spaces), dialogues were cleaned of redundant whitespace, and duplicate conversations were removed. The final augmented dataset was balanced to ensure an even distribution between toxic and non-toxic samples, thereby strengthening model training by preventing bias toward any class.
+Once generated, all data (from both sources) underwent additional processing. Conversations were checked for format consistency, proper turn alternation, and minimal length. Names were normalized (first letter uppercase, no trailing spaces), dialogues were cleaned of redundant whitespace, and duplicate conversations were removed.
 
-At the end of this process, we had a comprehensive dataset containing around 950 toxic conversations and approximately 600 non-toxic conversations, each with detailed annotations. This dataset serves as a robust foundation for training and evaluating toxicity detection models, enabling nuanced analysis of conversational dynamics and personality-driven behaviors.
+At the end of this process, we had a comprehensive dataset containing around 950 toxic conversations and approximately 600 non-toxic conversations, each with detailed annotations.
 
 \section{Approach}
 
@@ -126,15 +131,15 @@ In this section, we present our approach to toxicity detection, personality clas
 
 \subsubsection{Without Text Preprocessing}
 
-For the binary toxicity classification task, we first trained traditional machine learning models directly on raw conversational text. The dataset was split into training and test sets using an 80-20 stratified split to preserve class balance. We implemented two pipelines combining \texttt{TfidfVectorizer} with either Logistic Regression or Multinomial Naive Bayes classifiers. The \texttt{TfidfVectorizer} was configured with a bi-gram range (1,2) to capture both individual tokens and short phrases.
+For the binary toxicity classification task, we first trained traditional machine learning models directly on raw conversational text. The dataset was split into training and test sets using an 80-20 stratified split to preserve class balance. We implemented two pipelines combining \texttt{TfidfVectorizer} with either Logistic Regression or Multinomial Naive Bayes classifiers. The \texttt{TfidfVectorizer} was configured with a bi-gram range (1,2).
 
-Hyperparameter tuning was performed through grid search with 5-fold stratified cross-validation. For Logistic Regression, we optimized the regularization parameter \(C\) and the maximum number of features (3000, 5000, 7000). For Naive Bayes, we adjusted the smoothing parameter \(\alpha\) along with the number of features. The best configurations were selected based on weighted f1 measure. Both models achieved high accuracy on the test set, confirming that traditional methods remain effective when combined with strong text representations like TF-IDF, even without preprocessing.
+Hyperparameter tuning was performed through grid search with 5-fold stratified cross-validation. For Logistic Regression, we optimized the regularization parameter \(C\) and the maximum number of features (3000, 5000, 7000). For Naive Bayes, we adjusted the smoothing parameter \(\alpha\) along with the number of features. The best configurations were selected based on weighted F1 measure.
 
 \subsubsection{With Text Preprocessing}
 
 To assess the impact of linguistic normalization, we applied additional preprocessing using the Italian \texttt{spaCy} model (\texttt{it\_core\_news\_sm}). Each conversation was lowercased, lemmatized, and stripped of stop words, punctuation, and spaces. The resulting text consisted of lemmatized content words, aiming to reduce noise and improve generalization.
 
-We repeated the training and evaluation pipeline using these processed texts. The same classifiers and vectorization settings were used, although the grid search parameter space for max features was slightly reduced (2000, 4000, 6000) due to the more compact vocabulary after preprocessing. The results were comparable to the unprocessed case, with minor variations in precision and recall. This indicates that, while preprocessing provides cleaner input, the models already capture much of the discriminative information through n-gram patterns and TF-IDF weighting.
+We repeated the training and evaluation pipeline using these processed texts. The same classifiers and vectorization settings were used, although the grid search parameter space for max features was slightly reduced (2000, 4000, 6000) due to the more compact vocabulary after preprocessing.
 
 \subsection{Couple Dynamics Prediction}
 
@@ -148,7 +153,7 @@ We applied a pipeline consisting of TF-IDF vectorization, dimensionality reducti
     \item \textbf{TruncatedSVD}: Reduced the feature space to latent topics, with the number of components optimized in \{100, 200, 300\}.
     \item \textbf{Logistic Regression}: Employed \texttt{liblinear} solver and regularization parameter \(C \in \{0.1, 1, 10\}\).
 \end{itemize}
-Preprocessing was performed using \texttt{spaCy} (\texttt{it\_core\_news\_sm}), involving lowercasing, lemmatization, and removal of stopwords and punctuation. A grid search with 5-fold stratified cross-validation identified the best combination of latent components and regularization strength. The final model was evaluated on a held-out test set, with accuracy and confusion matrix analyses performed.
+Preprocessing was performed using the same spaCy pipeline as in the binary toxicity classification task, ensuring consistent text normalization. A grid search with 5-fold stratified cross-validation identified the best combination of latent components and regularization strength.
 
 \subsubsection{Logistic Regression on Frozen BERT Embeddings}
 
@@ -166,7 +171,6 @@ The final method involved fine-tuning \texttt{dbmdz/bert-base-italian-uncased} d
     \item \textbf{Input Pipeline}: Used \texttt{BertTokenizer} with padding, truncation, and max length 512. Data was split into train, validation, and test sets (80/10/10 stratified).
     \item \textbf{Model}: Employed \texttt{BertForSequenceClassification} with label mappings derived from the \texttt{person\_couple} classes.
     \item \textbf{Training Configuration}: Set for up to 7 epochs, batch size 8, Adam optimizer with weight decay, and learning rate warmup. Early stopping with patience of 2 epochs was applied to prevent overfitting.
-    \item \textbf{Trainer API}: Used HuggingFace \texttt{Trainer}, saving the best model based on validation loss.
 \end{itemize}
 Post-training, we plotted loss curves to visualize learning dynamics and assessed the model on the test set via accuracy, classification report, and confusion matrix.
 
@@ -214,33 +218,11 @@ At inference time, given a conversation, the model classifies each message indep
 
 In the generation-based approach, we framed the task as sequence-to-sequence learning: the input sequence consisted of the entire conversation (prefixed by a task descriptor), and the output was the annotated most toxic sentence. 
 
-We used the \texttt{facebook/bart-base} model with a maximum input length of 512 tokens and output sequences truncated or padded to a maximum of 64 tokens. Tokenization and training were performed using Huggingface's \texttt{Trainer} API with a \texttt{DataCollatorForSeq2Seq}.
+We used the \texttt{facebook/bart-base} model with a maximum input length of 512 tokens and output sequences truncated or padded to a maximum of 64 tokens.
 
 The dataset was split using \texttt{GroupShuffleSplit} to ensure that train, validation, and test partitions (80\% / 10\% / 10\%) did not share structurally similar conversations, minimizing the risk of data leakage. Training employed early stopping (patience = 2 epochs), 7 epochs maximum, learning rate $3 \times 10^{-5}$, and a batch size of 4 due to memory constraints with large sequence inputs.
 
-During inference, generation was performed using beam search (num\_beams = 4) with early stopping enabled. The generated sentence was evaluated against the reference using BLEU and ROUGE metrics.
-
-\subsubsection{Evaluation Protocol}
-
-Both models were evaluated on held-out test sets using metrics appropriate to their respective tasks.
-
-\paragraph{Classification Metrics}
-For the classification-based model, we computed standard classification metrics: \emph{accuracy}, \emph{precision}, \emph{recall}, and \emph{F1-score}. Furthermore, confusion matrices were plotted to provide a detailed view of misclassification patterns across classes.
-
-\paragraph{Generation Metrics}
-For the generation-based model, we employed BLEU and ROUGE metrics to quantitatively evaluate the similarity between the generated toxic sentence and the reference toxic sentence.
-
-\emph{BLEU} (Bilingual Evaluation Understudy) \cite{BLEU2002} measures the degree of n-gram overlap between the generated output and the reference text. Specifically, it computes precision over n-grams (where $n=1,2,\dots$), penalized by a brevity penalty to discourage overly short outputs. In this work, we computed sentence-level BLEU scores with smoothing to mitigate the problem of zero scores when no n-gram matches are found in short sentences.
-
-\emph{ROUGE} (Recall-Oriented Understudy for Gisting Evaluation) \cite{ROUGE2004} is a suite of metrics designed to evaluate text summarization and generation quality. We report three commonly used ROUGE variants:
-\begin{itemize}
-    \item \textbf{ROUGE-1:} Measures the overlap of unigrams (individual words) between the generated and reference sentence. It reflects how many words of the reference are captured by the output.
-    \item \textbf{ROUGE-2:} Measures the overlap of bigrams (sequences of two consecutive words). This provides a stronger indication of fluency and local coherence.
-    \item \textbf{ROUGE-L:} Based on the longest common subsequence (LCS), this metric captures the extent to which the generated output preserves the sequence and order of words found in the reference.
-\end{itemize}
-For ROUGE, we reported the \emph{F1} measure, which balances precision and recall at the n-gram level.
-
-All metrics were averaged over the test set to provide a global estimate of model performance. The use of both BLEU and ROUGE allowed us to evaluate the generated text along complementary dimensions: BLEU focusing more on precision of n-gram matches, and ROUGE emphasizing recall and sequence fidelity.
+During inference, generation was performed using beam search (num\_beams = 4) with early stopping enabled. 
 
 \subsection{Web Application for Real-Time Couple Dynamics and Most Toxic Phrase Detection}
 
@@ -248,11 +230,11 @@ To facilitate interactive experimentation and demonstration of the proposed mode
 
 \subsubsection{Architecture and Components}
 \begin{itemize}
-    \item \textbf{Couple dynamics classification:} The application uses a fine-tuned BERT model (\texttt{dbmdz/bert-base-italian-uncased}) to classify the overall interaction pattern between two individuals based on their dialogue history. The classifier outputs one of 15 predefined relationship dynamics labels (e.g., ``Narcisista E Succube''). The model produces class probabilities via a softmax layer, from which the most probable label and its confidence score are extracted.
+    \item \textbf{Couple dynamics classification:} The application uses a fine-tuned BERT model (\texttt{dbmdz/bert-base-italian-uncased}) to classify the overall interaction pattern between two individuals based on their dialogue history. The classifier outputs one of 15 predefined relationship dynamics labels. The model produces class probabilities via a softmax layer, from which the most probable label and its confidence score are extracted.
     
     \item \textbf{Toxic sentence classification:} A second fine-tuned BERT model identifies the most toxic sentence within the conversation. Each message is encoded together with the predicted couple dynamics as context. The model assigns a toxicity probability to each message, and the sentence with the highest probability is selected.
     
-    \item \textbf{Toxic sentence generation:} A fine-tuned BART model (\texttt{facebook/bart-base}) generates a toxic sentence summarizing the overall harmful content of the conversation. The model uses a prefix prompt (``Conversation: ...'') and generates an output sequence using beam search decoding (4 beams, early stopping, maximum 64 tokens).
+    \item \textbf{Toxic sentence generation:} A fine-tuned BART model (\texttt{facebook/bart-base}) generates a toxic sentence summarizing the overall harmful content of the conversation. The model generates an output sequence using beam search decoding (4 beams, early stopping, maximum 64 tokens).
 \end{itemize}
 
 \subsubsection{Inference Workflow}
@@ -261,24 +243,25 @@ Users interact with the system by submitting individual chat messages. The appli
     \item Classifies the most toxic sentence by evaluating each message in the history.
     \item Generates a toxic sentence summarization using the BART model.
 \end{enumerate}
-The inference process is performed in \emph{evaluation mode} with disabled gradient computation to reduce memory usage and ensure efficient execution.
 
 \subsubsection{User Interface}
-The interface provides:
-\begin{itemize}
-    \item A chat-like component for sequential input and feedback.
-    \item A button to trigger extraction of both the classified and generated toxic sentences.
-    \item A reset button to clear the conversation and results.
-\end{itemize}
+\noindent
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\columnwidth]{figures/web_app_interface_used.png}
+  \caption{Web application interface for couple dynamics and toxic sentence detection}
+  \label{fig:web_app_interface}
+\end{figure}
 
 \subsubsection{Implementation Details}
-All models were loaded in evaluation mode and run on GPU if available. Tokenization is performed dynamically at inference time. The BERT-based components use a maximum input length of 512 tokens (for couple dynamics) and 128 tokens (for toxic sentence classification), with appropriate truncation and padding strategies. The BART generator input is similarly truncated at 512 tokens to fit within the model's architecture limits.
+Tokenization is performed dynamically at inference time. The BERT-based components use a maximum input length of 512 tokens (for couple dynamics) and 128 tokens (for toxic sentence classification), with appropriate truncation and padding strategies. The BART generator input is similarly truncated at 512 tokens to fit within the model's architecture limits.
 
 The system provides both the predicted couple dynamics (including a binary toxic/not-toxic indication based on predefined labels) and the toxic sentence analyses, allowing direct comparison between classification-based and generation-based outputs.
 
 \section{Results}
 
-In this section, we present the results of our experiments on toxicity detection, couple dynamics classification, and most toxic sentence detection in Italian conversational data.
+In this section, we present the results of our experiments on toxicity detection, couple dynamics classification, and most toxic sentence detection.
 
 \subsection{Binary Toxicity Classification}
 
@@ -300,39 +283,30 @@ The binary toxicity classification task was evaluated using two classical machin
 \end{itemize}
 
 \subsubsection{Performance Metrics}
-
-\paragraph{Without preprocessing}
 \noindent
+
+The models were evaluated on the test set using accuracy, precision, recall, and F1-score as metrics. The results are summarized in Table~\ref{tab:binary_classification_results}.
+
 \begin{table}[H]
   \centering
   \begin{tabular}{lcccc}
     \toprule
-    \textbf{Model} & \textbf{Accuracy} & \textbf{Precision} & \textbf{Recall} & \textbf{F1} \\
+    \textbf{Model} & \textbf{Accuracy} & \textbf{Precision} & \textbf{Recall} & \textbf{F1-score} \\
     \midrule
     Logistic Regression & 0.9968 & 0.9968 & 0.9968 & 0.9968 \\
     Multinomial NB      & 0.9968 & 0.9968 & 0.9968 & 0.9968 \\
+    Log Reg (spaCy)     & 0.9936 & 0.9936 & 0.9936 & 0.9936 \\
+    Multi NB (spaCy)    & 0.9968 & 0.9968 & 0.9968 & 0.9968 \\
     \bottomrule
   \end{tabular}
-  \caption{Binary classification results without preprocessing}
-\end{table}
-
-\paragraph{With spaCy preprocessing}
-\noindent
-\begin{table}[H]
-  \centering
-  \begin{tabular}{lcccc}
-    \toprule
-    \textbf{Model} & \textbf{Accuracy} & \textbf{Precision} & \textbf{Recall} & \textbf{F1} \\
-    \midrule
-    Log Reg (spaCy) & 0.9936 & 0.9936 & 0.9936 & 0.9936 \\
-    Multi NB (spaCy)      & 0.9968 & 0.9968 & 0.9968 & 0.9968 \\
-    \bottomrule
-  \end{tabular}
-  \caption{Binary classification results with spaCy preprocessing}
+  \caption{Binary classification results with and without preprocessing}
+  \label{tab:binary_classification_results}
 \end{table}
 
 \subsubsection{Confusion Matrices}
 \noindent
+
+Following there are the confusion matrices for each model configuration, which illustrate the classification performance in more detail.
 
 \begin{figure}[H]
   \centering
@@ -364,24 +338,11 @@ Both models achieved near-perfect performance, indicating strong separability be
 
 \subsection{Couple Dynamics Classification}
 
-In this section, we compare the performance of three approaches applied to the couple dynamics classification task: (i) LSA + Logistic Regression, (ii) BERT embeddings with Logistic Regression, and (iii) fine-tuned BERT. Their metrics are summarized in the tables above.
+In this section, we compare the performance of three approaches applied to the couple dynamics classification task: (i) LSA + Logistic Regression, (ii) BERT embeddings with Logistic Regression, and (iii) fine-tuned BERT.
 
 \subsubsection{LSA + Logistic Regression}
 \noindent
-
-The LSA + Logistic Regression pipeline achieved an accuracy of 73.95\% with macro precision, recall, and F1 scores of 0.72, 0.72, and 0.71 respectively. This approach shows reasonable performance, particularly for classes with well-separated semantics (e.g., Grato e Apprezzante, Pentito e Comprensivo, Propositivo e Collaborativo where precision and recall reached or neared 1.00). However, for more subtle or overlapping dynamics (e.g., Sadico-Crudele E Masochista, Geloso-Ossessivo E Sottomessa), both precision and recall were significantly lower. This highlights the limitations of linear models on reduced-dimensional semantic spaces in handling complex emotional contexts.
-
-\begin{table}[H]
-  \centering
-  \begin{tabular}{lcccc}
-    \toprule
-    \textbf{Metric (Macro)} & \textbf{Accuracy} & \textbf{Precision} & \textbf{Recall} & \textbf{F1} \\
-    \midrule
-    Value & 0.7395 & 0.7233 & 0.7160 & 0.7113 \\
-    \bottomrule
-  \end{tabular}
-  \caption{Performance of LSA + Logistic Regression on test set}
-\end{table}
+The LSA + Logistic Regression pipeline demonstrated reasonable performance, particularly excelling in classes with well-separated semantics (e.g., Grato e Apprezzante, Pentito e Comprensivo, Propositivo e Collaborativo). However, it struggled with more subtle or overlapping dynamics, such as Sadico-Crudele E Masochista and Geloso-Ossessivo E Sottomessa.
 
 \begin{figure}[H]
   \centering
@@ -393,20 +354,7 @@ The LSA + Logistic Regression pipeline achieved an accuracy of 73.95\% with macr
 
 \subsubsection{BERT Embeddings + Logistic Regression}
 \noindent
-
-Using pre-trained BERT embeddings as features yielded slightly lower performance with 70.10\% accuracy and macro F1 of 0.67. While BERT embeddings capture richer semantics than LSA, the lack of task-specific fine-tuning likely limited their effectiveness in this multi-class setting. Some classes (Pentito e Comprensivo, Propositivo e Collaborativo) continued to be classified accurately, but the model struggled with more nuanced or less frequent dynamics, suggesting that the embeddings alone were not sufficiently discriminative without adaptation.
-
-\begin{table}[H]
-  \centering
-  \begin{tabular}{lcccc}
-    \toprule
-    \textbf{Metric (Macro)} & \textbf{Accuracy} & \textbf{Precision} & \textbf{Recall} & \textbf{F1} \\
-    \midrule
-    Value & 0.7010 & 0.6840 & 0.6767 & 0.6753 \\
-    \bottomrule
-  \end{tabular}
-  \caption{Performance of BERT embeddings + Logistic Regression on test set}
-\end{table}
+Using pre-trained BERT embeddings as features yielded slightly lower performance compared to the LSA-based approach. While BERT embeddings capture richer semantics than LSA, the lack of task-specific fine-tuning likely limited their effectiveness in this multi-class setting. Some classes (Pentito e Comprensivo, Propositivo e Collaborativo) continued to be classified accurately, but the model struggled with more nuanced or less frequent dynamics.
 
 \begin{figure}[H]
   \centering
@@ -418,20 +366,7 @@ Using pre-trained BERT embeddings as features yielded slightly lower performance
 
 \subsubsection{Fine-tuned BERT}
 \noindent
-
-The fine-tuned BERT model outperformed both previous approaches, achieving 80.13\% accuracy with a macro F1 of 0.78. As shown in the loss curves (Figure~\ref{fig:bert_loss}), the model exhibited good convergence behavior with no significant overfitting. The confusion matrix (Figure~\ref{fig:bert_cm}) further illustrates that this model provided more balanced predictions across most classes, including those that were difficult for previous approaches (e.g., Sadico-Crudele E Masochista, Vittimista E Croccerossina). The fine-tuning phase allowed BERT to specialize its representations to the nuances of couple dynamics, leading to more robust classification.
-
-\begin{table}[H]
-  \centering
-  \begin{tabular}{lcccc}
-    \toprule
-    \textbf{Metric (Macro)} & \textbf{Accuracy} & \textbf{Precision} & \textbf{Recall} & \textbf{F1} \\
-    \midrule
-    Value & 0.8013 & 0.8093 & 0.7867 & 0.7780 \\
-    \bottomrule
-  \end{tabular}
-  \caption{Performance of fine-tuned BERT on test set}
-\end{table}
+The fine-tuned BERT model outperformed both previous approaches. As depicted in the loss curves (Figure~\ref{fig:bert_loss}), the model exhibited good convergence behavior with no significant overfitting. The confusion matrix (Figure~\ref{fig:bert_cm}) further illustrates that this model provided more balanced predictions across most classes, including those that were difficult for previous approaches (e.g., Sadico-Crudele E Masochista, Vittimista E Croccerossina).
 
 \begin{figure}[H]
   \centering
@@ -447,6 +382,29 @@ The fine-tuned BERT model outperformed both previous approaches, achieving 80.13
   \label{fig:bert_cm}
 \end{figure}
 
+\vspace{1em}
+
+\subsubsection{Summary of Results}
+\noindent
+
+Table~\ref{tab:all_results} provides a comparative summary of the test set performance for all models, with precision, recall, and F1-score reported as macro averages.
+
+\begin{table}[H]
+  \centering
+  \begin{tabular}{lcccc}
+    \toprule
+    \textbf{Model} & \textbf{Accuracy} & \textbf{Precision} & \textbf{Recall} & \textbf{F1-score} \\
+    \midrule
+    LSA + Log Reg & 0.7395 & 0.7233 & 0.7160 & 0.7113 \\
+    BERT + Log Reg & 0.7010 & 0.6840 & 0.6767 & 0.6753 \\
+    Fine-tuned BERT & 0.8013 & 0.8093 & 0.7867 & 0.7780 \\
+    \bottomrule
+  \end{tabular}
+  \caption{Comparison of model performance on the test set.}
+  \label{tab:all_results}
+\end{table}
+
+
 \subsection{Most Toxic Sentence Detection}
 \noindent
 
@@ -455,26 +413,27 @@ The most toxic sentence detection task was evaluated using two distinct approach
 \subsubsection{Most Toxic Sentence Classification with BERT}
 \noindent
 
-The BERT-based classifier achieved a test set accuracy of 87.40\%. While the overall accuracy and weighted metrics are high (weighted F1: 0.86), a detailed analysis reveals a significant imbalance in class-level performance. The classifier reached high precision (0.91) and recall (0.96) for the Non-Toxic class, but struggled considerably with the Toxic class, yielding a precision of 0.36 and recall of 0.20. The low recall indicates that the model missed a large proportion of toxic phrases, likely due to the imbalance in the dataset where non-toxic sentences dominate. This suggests that despite fine-tuning, BERT had difficulty in detecting the minority class in a highly imbalanced setting.
+The BERT-based classifier achieved strong overall performance on the test set, as shown in Table~\ref{tab:bert_toxic_classification}. While the overall accuracy and weighted metrics are high, a detailed analysis reveals a significant imbalance in class-level performance. The classifier performed well for the Non-Toxic class, achieving high precision and recall, but struggled considerably with the Toxic class, yielding lower precision and recall. The low recall indicates that the model missed a large proportion of toxic phrases, likely due to the imbalance in the dataset where non-toxic sentences dominate. This suggests that despite fine-tuning, BERT had difficulty in detecting the minority class in a highly imbalanced setting.
 
 \begin{table}[H]
-\centering
-\caption{Performance metrics for BERT toxic phrase classification}
-\begin{tabular}{lcccc}
-\toprule
-\textbf{Class} & \textbf{Precision} & \textbf{Recall} & \textbf{F1-score} & \textbf{Support} \\
-\midrule
-Non-Toxic & 0.9077 & 0.9558 & 0.9311 & 679 \\
-Toxic & 0.3617 & 0.2048 & 0.2615 & 83 \\
-\midrule
-\textbf{Accuracy} & \multicolumn{4}{c}{0.8740} \\
-\textbf{Macro avg} & 0.6347 & 0.5803 & 0.5963 & 762 \\
-\textbf{Weighted avg} & 0.8482 & 0.8740 & 0.8582 & 762 \\
-\bottomrule
-\end{tabular}
+  \centering
+  \begin{tabular}{lcccc}
+    \toprule
+    \textbf{Class} & \textbf{Precision} & \textbf{Recall} & \textbf{F1-score} & \textbf{Support} \\
+    \midrule
+    Non-Toxic & 0.9077 & 0.9558 & 0.9311 & 679 \\
+    Toxic & 0.3617 & 0.2048 & 0.2615 & 83 \\
+    \midrule
+    \textbf{Accuracy} & \multicolumn{4}{c}{0.8740} \\
+    \textbf{Macro avg} & 0.6347 & 0.5803 & 0.5963 & 762 \\
+    \textbf{Weighted avg} & 0.8482 & 0.8740 & 0.8582 & 762 \\
+    \bottomrule
+  \end{tabular}
+  \caption{Performance metrics for BERT toxic phrase classification}
+  \label{tab:bert_toxic_classification}
 \end{table}
 
-As depicted in the loss curves (Figure~\ref{fig:bert_loss_toxic}), the model initially achieved a good reduction in both training and validation loss. However, after the first few epochs, the validation loss began to increase while the training loss remained relatively stable, suggesting the onset of overfitting. Future work might explore rebalancing strategies, stronger regularization, or alternative loss functions (e.g., focal loss) to better handle the class imbalance and improve generalization. The confusion matrix (Figure~\ref{fig:bert_cm_toxic}) further illustrates this imbalance, with a large number of false negatives in the \emph{Toxic} class.
+As depicted in the loss curves (Figure~\ref{fig:bert_loss_toxic}), the model initially achieved a good reduction in both training and validation loss. However, after the first few epochs, the validation loss began to increase while the training loss remained relatively stable, suggesting the onset of overfitting.
 
 \begin{figure}[H]
   \centering
@@ -493,24 +452,39 @@ As depicted in the loss curves (Figure~\ref{fig:bert_loss_toxic}), the model ini
 \subsubsection{Most Toxic Sentence Generation with BART}
 \noindent
 
-For generation, we evaluated the BART model using BLEU and ROUGE metrics to assess the similarity between generated toxic phrases and human-labeled toxic phrases. The model achieved an average BLEU score of 0.17, ROUGE-1 F-measure of 0.30, ROUGE-2 F-measure of 0.22, and ROUGE-L F-measure of 0.30. These results indicate that the generated phrases share some lexical overlap with reference toxic phrases, but the relatively low BLEU score reflects the challenge of generating exact matches in open-ended, linguistically varied tasks such as toxic phrase synthesis. The ROUGE F-measure scores suggest that BART captured some key n-grams and longer subsequences of reference phrases, yet there remains substantial room for improving fluency and semantic alignment.
+For generation, we evaluated the BART model using BLEU and ROUGE metrics to assess the similarity between generated toxic phrases and human-labeled toxic phrases. 
+
+\emph{BLEU} (Bilingual Evaluation Understudy) \cite{BLEU2002} measures the degree of n-gram overlap between the generated output and the reference text. Specifically, it computes precision over n-grams (where $n=1,2,\dots$), penalized by a brevity penalty to discourage overly short outputs. In this work, we computed sentence-level BLEU scores with smoothing to mitigate the problem of zero scores when no n-gram matches are found in short sentences.
+
+\emph{ROUGE} (Recall-Oriented Understudy for Gisting Evaluation) \cite{ROUGE2004} is a suite of metrics designed to evaluate text summarization and generation quality. We report three commonly used ROUGE variants:
+\begin{itemize}
+    \item \textbf{ROUGE-1:} Measures the overlap of unigrams (individual words) between the generated and reference sentence. It reflects how many words of the reference are captured by the output.
+    \item \textbf{ROUGE-2:} Measures the overlap of bigrams (sequences of two consecutive words). This provides a stronger indication of fluency and local coherence.
+    \item \textbf{ROUGE-L:} Based on the longest common subsequence (LCS), this metric captures the extent to which the generated output preserves the sequence and order of words found in the reference.
+\end{itemize}
+For ROUGE, we reported the \emph{F1} measure, which balances precision and recall at the n-gram level.
+
+All metrics were averaged over the test set to provide a global estimate of model performance. The use of both BLEU and ROUGE allowed us to evaluate the generated text along complementary dimensions: BLEU focusing more on precision of n-gram matches, and ROUGE emphasizing recall and sequence fidelity.
+
+The model achieved results as reported in Table~\ref{tab:bart_toxic_generation}. These results indicate that the generated phrases share some lexical overlap with reference toxic phrases, but the relatively low scores reflect the challenge of generating exact matches in open-ended, linguistically varied tasks such as toxic phrase synthesis. The metrics suggest that BART captured some key n-grams and longer subsequences of reference phrases, yet there remains substantial room for improving fluency and semantic alignment.
 
 \begin{table}[H]
-\centering
-\caption{Performance metrics for BART toxic phrase generation}
-\begin{tabular}{lc}
-\toprule
-\textbf{Metric} & \textbf{Score} \\
-\midrule
-BLEU & 0.1706 \\
-ROUGE-1 & 0.3031 \\
-ROUGE-2 & 0.2170 \\
-ROUGE-L & 0.2987 \\
-\bottomrule
-\end{tabular}
+  \centering
+  \begin{tabular}{lc}
+    \toprule
+    \textbf{Metric} & \textbf{Score} \\
+    \midrule
+    BLEU & 0.1706 \\
+    ROUGE-1 & 0.3031 \\
+    ROUGE-2 & 0.2170 \\
+    ROUGE-L & 0.2987 \\
+    \bottomrule
+  \end{tabular}
+  \caption{Performance metrics for BART toxic phrase generation}
+  \label{tab:bart_toxic_generation}
 \end{table}
 
-As seen in the loss curves (Figure~\ref{fig:bart_loss_toxic}), the model's training dynamics show a steady decrease in training loss across epochs, while the validation loss remains low and relatively stable. This indicates that the model fits the training data progressively better without significant overfitting. However, more sophisticated decoding strategies (e.g., nucleus sampling, top-k sampling) could potentially further enhance the generation quality.
+As seen in the loss curves (Figure~\ref{fig:bart_loss_toxic}), the model's training dynamics show a steady decrease in training loss across epochs, while the validation loss remains low and relatively stable. This indicates that the model fits the training data progressively better without significant overfitting.
 
 \begin{figure}[H]
   \centering
@@ -523,7 +497,7 @@ As seen in the loss curves (Figure~\ref{fig:bart_loss_toxic}), the model's train
 
 In this report, we presented a comprehensive approach to toxicity detection, couple dynamics analysis and most toxic sentence detection in Italian conversational data. Our methodology combined traditional machine learning techniques with advanced transformer-based models, specifically BERT and BART, to achieve robust performance across multiple tasks.
 
-We successfully generated a synthetic dataset of Italian conversations, which was used to train and evaluate our models. The binary toxicity classification task demonstrated that classical machine learning models, such as Logistic Regression and Multinomial Naive Bayes, can achieve high accuracy even without extensive text preprocessing.
+We successfully generated a synthetic dataset of Italian conversations, which was used to train and evaluate our models. The binary toxicity classification task demonstrated that classical machine learning models, such as Logistic Regression and Multinomial Naive Bayes, can achieve nearly perfect accuracy even without extensive text preprocessing.
 
 The couple dynamics classification task highlighted the effectiveness of fine-tuned BERT models in capturing complex relational patterns, achieving an accuracy of 80.13\%.
 
@@ -539,7 +513,7 @@ While our approach has demonstrated promising results, several limitations remai
 
 \begin{itemize}
     \item \textbf{Class Imbalance:} The binary toxicity classification and most toxic sentence detection tasks faced significant class imbalance, which affected model performance. Future work should explore techniques such as oversampling, undersampling, or using focal loss to mitigate this issue.
-    \item \textbf{Interpretability:} The black-box nature of transformer models makes it challenging to interpret their decisions. Future work should explore techniques for model interpretability, such as attention visualization or feature attribution methods, to better understand the factors driving toxicity predictions.
+    \item \textbf{Interpretability:} The black-box nature of transformer models makes it challenging to interpret their decisions. Future work should explore techniques for model interpretability to better understand the factors driving toxicity predictions.
     \item \textbf{Real-time Performance:} The web application, while functional, may face performance issues with larger conversations or more complex models. Future work should optimize the inference pipeline and consider model distillation or quantization techniques to improve real-time responsiveness.
 \end{itemize}
 
@@ -548,17 +522,14 @@ While our approach has demonstrated promising results, several limitations remai
 Future work could explore the following directions:
 
 \begin{itemize}
+    \item \textbf{Use of different loss functions:} Experimenting with different loss functions, such as focal loss or label smoothing, to address class imbalance and improve model performance on minority classes.
+    \item \textbf{Pairwise training and tournament evaluation:} Adopting a pairwise training approach for BERT models to learn comparative toxicity relationships, such as "A is more toxic than B". This could be assessed using a tournament-style evaluation, where models compare pairs of conversations to derive more refined insights into couple dynamics.
     \item \textbf{Adding explanations to predictions:} Enhancing the web application to provide explanations for toxicity predictions, such as highlighting specific phrases or words contributing to the classification.
     \item \textbf{Expanding the dataset:} Collecting more diverse conversational data to improve model generalization and robustness, particularly for underrepresented classes in couple dynamics.
-    \item \textbf{Exploring other transformer architectures:} Investigating alternative transformer models, such as RoBERTa or GPT-3, to compare their performance on toxicity detection and couple dynamics analysis.
-    \item \textbf{Use of different loss functions:} Experimenting with different loss functions, such as focal loss or label smoothing, to address class imbalance and improve model performance on minority classes.
+    \item \textbf{Exploring other transformer architectures:} Investigating alternative transformer models, such as RoBERTa or GPT, to compare their performance on toxicity detection and couple dynamics analysis.
     \item \textbf{Incorporating user feedback:} Implementing a feedback loop in the web application to allow users to provide corrections or additional context, which could be used to iteratively improve model performance.
 \end{itemize}
 \noindent
-
-\section{Code and Data Availability}
-
-Code and dataset are available on GitHub at the following link: \url{https://github.com/Davy592/NLP}
 
 \bibliographystyle{IEEEtran}
 \bibliography{bibliografia}

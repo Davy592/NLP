@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.22.0 (MiKTeX 25.4) (format=lualatex 2025.6.29)  1 JUL 2025 00:53
+This is LuaHBTeX, Version 1.22.0 (MiKTeX 25.4) (format=lualatex 2025.6.29)  2 JUL 2025 00:05
  system commands enabled.
  file:line:error style messages enabled.
 **c:/Users/Davide/Desktop/NLP/report/report
@@ -801,7 +801,7 @@ Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: listings package is loaded.
 )
-LaTeX Font Info:    Trying to load font information for T1+lmr on input line 39
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 40
 .
  (C:/Users/Davide/AppData/Local/Programs/MiKTeX/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
@@ -813,26 +813,26 @@ File: l3backend-luatex.def 2025-06-09 L3 backend support: PDF output (LuaTeX)
 Inserting `l3color' in `luaotfload.parse_color'.) (./report.aux)
 \openout1 = report.aux
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
 
 -- Lines per column: 56 (exact).
 
@@ -861,7 +861,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-Package hyperref Info: Link coloring OFF on input line 39.
+Package hyperref Info: Link coloring OFF on input line 40.
  (./report.out) (./report.out)
 \@outlinefile=\write3
 
@@ -873,12 +873,53 @@ File: translations-basic-dictionary-english.trsl (english translation file `tra
 nslations-basic-dictionary')
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' f
-or `english'. on input line 39.
+or `english'. on input line 40.
 \c@lstlisting=\count366
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 4
+2.
 
-Underfull \hbox (badness 3758) in paragraph at lines 41--41
+(C:/Users/Davide/AppData/Local/Programs/MiKTeX/tex/latex/lm/ot1lmr.fd
+File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 4
+2.
+
+(C:/Users/Davide/AppData/Local/Programs/MiKTeX/tex/latex/lm/omllmm.fd
+File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
+42.
+
+(C:/Users/Davide/AppData/Local/Programs/MiKTeX/tex/latex/lm/omslmsy.fd
+File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
+42.
+
+(C:/Users/Davide/AppData/Local/Programs/MiKTeX/tex/latex/lm/omxlmex.fd
+File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 42.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 42.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 42.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 42.
+
+
+(C:/Users/Davide/AppData/Local/Programs/MiKTeX/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 42.
+
+
+(C:/Users/Davide/AppData/Local/Programs/MiKTeX/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+Underfull \hbox (badness 3758) in paragraph at lines 42--42
 []\T1/lmr/bx/it/9 Ab-stract\T1/lmr/bx/n/9 ---This pa-per presents a com-pre-hen-
 sive
  []
@@ -898,51 +939,9 @@ dftex.map}
 
 Missing character: There is no ’ (U+2019) in font ec-lmr10!
 ]
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 7
-0.
- (C:/Users/Davide/AppData/Local/Programs/MiKTeX/tex/latex/lm/ot1lmr.fd
-File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 7
-0.
-
-(C:/Users/Davide/AppData/Local/Programs/MiKTeX/tex/latex/lm/omllmm.fd
-File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-70.
-
-(C:/Users/Davide/AppData/Local/Programs/MiKTeX/tex/latex/lm/omslmsy.fd
-File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-70.
-
-(C:/Users/Davide/AppData/Local/Programs/MiKTeX/tex/latex/lm/omxlmex.fd
-File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 70.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 70.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 70.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 70.
-
-
-(C:/Users/Davide/AppData/Local/Programs/MiKTeX/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 70.
-
-
-(C:/Users/Davide/AppData/Local/Programs/MiKTeX/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 7
-4.
-
-(C:/Users/Davide/AppData/Local/Programs/MiKTeX/tex/latex/lm/t1lmtt.fd
+5.
+ (C:/Users/Davide/AppData/Local/Programs/MiKTeX/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 
@@ -950,68 +949,61 @@ Missing character: There is no ’ (U+2019) in font ec-lmr10!
 Missing character: There is no ’ (U+2019) in font ec-lmr10!
 
 
-[2]
+[2
+Missing character: There is no ’ (U+2019) in font ec-lmr10!
+]
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 151--152
-\T1/lmr/m/n/10 Pre-pro-cess-ing was per-formed us-ing \T1/lmtt/m/n/10 spaCy
+Underfull \hbox (badness 2173) in paragraph at lines 156--157
+\T1/lmr/m/n/10 Pre-pro-cess-ing was per-formed us-ing the same spaCy
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 151--152
-\T1/lmr/m/n/10 (\T1/lmtt/m/n/10 it_core_news_sm\T1/lmr/m/n/10 ), in-volv-ing low
--er-cas-ing, lemma-ti-
- []
-
-
-Underfull \hbox (badness 4001) in paragraph at lines 155--157
+Underfull \hbox (badness 4001) in paragraph at lines 160--162
 \T1/lmr/m/n/10 In this vari-ant, we lever-aged the pre-trained Ital-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 158--159
+Underfull \hbox (badness 10000) in paragraph at lines 163--164
 []\T1/lmr/bx/n/10 Em-bed-ding Ex-trac-tion\T1/lmr/m/n/10 : The
  []
 
 
-
-[3
-Missing character: There is no ’ (U+2019) in font ec-lmr10!
-]
-Overfull \hbox (2.67563pt too wide) in paragraph at lines 167--168
+Overfull \hbox (2.67563pt too wide) in paragraph at lines 172--173
 []\T1/lmr/bx/n/10 Model\T1/lmr/m/n/10 : Em-ployed \T1/lmtt/m/n/10 BertForSequenc
 eClassification
  []
 
 
 
+[3]
 
-Underfull \hbox (badness 4024) in paragraph at lines 215--216
+
+Underfull \hbox (badness 4024) in paragraph at lines 219--220
  \T1/lmr/m/it/10 2) Toxic Phrase Gen-er-a-tion with BART: [][][]\T1/lmr/m/n/10 
 In the
  []
 
 
-Underfull \hbox (badness 4660) in paragraph at lines 215--216
+Underfull \hbox (badness 4660) in paragraph at lines 219--220
 \T1/lmr/m/n/10 generation-based ap-proach, we framed the task as
  []
 
 
 
 [4]
-Underfull \hbox (badness 1946) in paragraph at lines 231--232
- \T1/lmr/m/it/10 b) Gen-er-a-tion Met-rics: [][]\T1/lmr/m/n/10 For the generatio
-n-based
- []
+<figures/web_app_interface_used.png, id=236, 738.50906pt x 593.96906pt>
+File: figures/web_app_interface_used.png Graphic file (type png)
+<use figures/web_app_interface_used.png>
+Package luatex.def Info: figures/web_app_interface_used.png  used on input line
+ 252.
+(luatex.def)             Requested size: 252.0pt x 202.67186pt.
 
-
-
-
-
-[5]
 Missing character: There is no ‑ (U+2011) in font ec-lmr10!
 Missing character: There is no ‑ (U+2011) in font ec-lmr10!
 Missing character: There is no ‑ (U+2011) in font ec-lmr10!
+
+
 Missing character: There is no ‑ (U+2011) in font ec-lmr10!
 Missing character: There is no ‑ (U+2011) in font ec-lmr10!
 Missing character: There is no ‑ (U+2011) in font ec-lmr10!
@@ -1022,164 +1014,153 @@ Missing character: There is no ‑ (U+2011) in font ec-lmr10!
 Missing character: There is no ‑ (U+2011) in font ec-lmr10!
 Missing character: There is no ‑ (U+2011) in font ec-lmr10!
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 308.
+(Font)              <8> on input line 292.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 308.
+(Font)              <6> on input line 292.
 
-Overfull \hbox (8.00038pt too wide) in paragraph at lines 308--316
+Overfull \hbox (20.36603pt too wide) in paragraph at lines 292--302
  [][] 
  []
 
-
-Overfull \hbox (4.9016pt too wide) in paragraph at lines 323--331
- [][] 
- []
-
-<figures/confusion_lr_no_pre.png, id=250, 487.8225pt x 379.4175pt>
+<figures/confusion_lr_no_pre.png, id=238, 487.8225pt x 379.4175pt>
 File: figures/confusion_lr_no_pre.png Graphic file (type png)
 <use figures/confusion_lr_no_pre.png>
-Package luatex.def Info: figures/confusion_lr_no_pre.png  used on input line 33
-9.
+Package luatex.def Info: figures/confusion_lr_no_pre.png  used on input line 31
+3.
 (luatex.def)             Requested size: 226.79846pt x 176.39836pt.
-<figures/confusion_nb_no_pre.png, id=251, 487.8225pt x 379.4175pt>
+<figures/confusion_nb_no_pre.png, id=239, 487.8225pt x 379.4175pt>
 File: figures/confusion_nb_no_pre.png Graphic file (type png)
 <use figures/confusion_nb_no_pre.png>
-Package luatex.def Info: figures/confusion_nb_no_pre.png  used on input line 34
-5.
+Package luatex.def Info: figures/confusion_nb_no_pre.png  used on input line 31
+9.
 (luatex.def)             Requested size: 226.79846pt x 176.39836pt.
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-<figures/confusion_lr_spacy.png, id=252, 487.8225pt x 379.4175pt>
+
+
+[5
+Missing character: There is no ‑ (U+2011) in font ec-lmr10!
+Missing character: There is no ‑ (U+2011) in font ec-lmr10!
+Missing character: There is no ‑ (U+2011) in font ec-lmr10!
+Missing character: There is no ‑ (U+2011) in font ec-lmr10!
+<./figures/web_app_interface_used.png><./figures/confusion_lr_no_pre.png>]
+<figures/confusion_lr_spacy.png, id=254, 487.8225pt x 379.4175pt>
 File: figures/confusion_lr_spacy.png Graphic file (type png)
 <use figures/confusion_lr_spacy.png>
-Package luatex.def Info: figures/confusion_lr_spacy.png  used on input line 351
+Package luatex.def Info: figures/confusion_lr_spacy.png  used on input line 325
 .
 (luatex.def)             Requested size: 226.79846pt x 176.39836pt.
-<figures/confusion_nb_spacy.png, id=253, 487.8225pt x 379.4175pt>
+<figures/confusion_nb_spacy.png, id=255, 487.8225pt x 379.4175pt>
 File: figures/confusion_nb_spacy.png Graphic file (type png)
 <use figures/confusion_nb_spacy.png>
-Package luatex.def Info: figures/confusion_nb_spacy.png  used on input line 357
+Package luatex.def Info: figures/confusion_nb_spacy.png  used on input line 331
 .
 (luatex.def)             Requested size: 226.79846pt x 176.39836pt.
+
 Missing character: There is no ‑ (U+2011) in font ec-lmr10!
 Missing character: There is no ‑ (U+2011) in font ec-lmr10!
+
+
+<figures/lsa_logreg_confusion_matrix.png, id=256, 1063.8144pt x 859.2903pt>
+File: figures/lsa_logreg_confusion_matrix.png Graphic file (type png)
+<use figures/lsa_logreg_confusion_matrix.png>
+Package luatex.def Info: figures/lsa_logreg_confusion_matrix.png  used on input
+ line 349.
+(luatex.def)             Requested size: 252.0pt x 203.54597pt.
+<figures/bert_logreg_confusion_matrix.png, id=257, 1063.8144pt x 859.2903pt>
+File: figures/bert_logreg_confusion_matrix.png Graphic file (type png)
+<use figures/bert_logreg_confusion_matrix.png>
+Package luatex.def Info: figures/bert_logreg_confusion_matrix.png  used on inpu
+t line 361.
+(luatex.def)             Requested size: 252.0pt x 203.54597pt.
+
+Underfull \vbox (badness 1859) has occurred while \output is active []
+
 
 
 [6
 Missing character: There is no ‑ (U+2011) in font ec-lmr10!
-Missing character: There is no ‑ (U+2011) in font ec-lmr10!
-Missing character: There is no ‑ (U+2011) in font ec-lmr10!
-Missing character: There is no ‑ (U+2011) in font ec-lmr10!
-<./figures/confusion_lr_no_pre.png><./figures/confusion_nb_no_pre.png><./figures
-/confusion_lr_spacy.png><./figures/confusion_nb_spacy.png>]
-Overfull \hbox (3.48529pt too wide) in paragraph at lines 376--383
- [][] 
- []
-
-<figures/lsa_logreg_confusion_matrix.png, id=272, 1063.8144pt x 859.2903pt>
-File: figures/lsa_logreg_confusion_matrix.png Graphic file (type png)
-<use figures/lsa_logreg_confusion_matrix.png>
-Package luatex.def Info: figures/lsa_logreg_confusion_matrix.png  used on input
- line 388.
-(luatex.def)             Requested size: 252.0pt x 203.54597pt.
-
-
-
-Overfull \hbox (3.48529pt too wide) in paragraph at lines 401--408
- [][] 
- []
-
-<figures/bert_logreg_confusion_matrix.png, id=273, 1063.8144pt x 859.2903pt>
-File: figures/bert_logreg_confusion_matrix.png Graphic file (type png)
-<use figures/bert_logreg_confusion_matrix.png>
-Package luatex.def Info: figures/bert_logreg_confusion_matrix.png  used on inpu
-t line 413.
-(luatex.def)             Requested size: 252.0pt x 203.54597pt.
-
-Overfull \hbox (3.48529pt too wide) in paragraph at lines 426--433
- [][] 
- []
-
-
-Underfull \vbox (badness 2050) has occurred while \output is active []
-
-
-
-[7
-Missing character: There is no ‑ (U+2011) in font ec-lmr10!
-<./figures/lsa_logreg_confusion_matrix.png><./figures/bert_logreg_confusion_matr
-ix.png>]
-<figures/bert_finetuned_loss_curves.png, id=289, 614.295pt x 399.6531pt>
+<./figures/confusion_nb_no_pre.png><./figures/confusion_lr_spacy.png><./figures/
+confusion_nb_spacy.png><./figures/lsa_logreg_confusion_matrix.png>]
+<figures/bert_finetuned_loss_curves.png, id=272, 614.295pt x 399.6531pt>
 File: figures/bert_finetuned_loss_curves.png Graphic file (type png)
 <use figures/bert_finetuned_loss_curves.png>
 Package luatex.def Info: figures/bert_finetuned_loss_curves.png  used on input 
-line 438.
+line 373.
 (luatex.def)             Requested size: 252.0pt x 163.9503pt.
-<figures/bert_finetuned_confusion_matrix.png, id=290, 1063.8144pt x 859.2903pt>
+<figures/bert_finetuned_confusion_matrix.png, id=273, 1063.8144pt x 859.2903pt>
 
 File: figures/bert_finetuned_confusion_matrix.png Graphic file (type png)
 <use figures/bert_finetuned_confusion_matrix.png>
 Package luatex.def Info: figures/bert_finetuned_confusion_matrix.png  used on i
-nput line 445.
+nput line 380.
 (luatex.def)             Requested size: 252.0pt x 203.54597pt.
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-Overfull \hbox (2.35349pt too wide) in paragraph at lines 463--475
+
+
+Overfull \hbox (15.95888pt too wide) in paragraph at lines 394--403
  [][] 
  []
 
-<figures/bert_toxic_loss_curves.png, id=293, 620.0766pt x 399.6531pt>
+
+Overfull \hbox (2.35349pt too wide) in paragraph at lines 420--432
+ [][] 
+ []
+
+
+Underfull \vbox (badness 1062) has occurred while \output is active []
+
+
+
+[7<./figures/bert_logreg_confusion_matrix.png><./figures/bert_finetuned_loss_cur
+ves.png><./figures/bert_finetuned_confusion_matrix.png>]
+<figures/bert_toxic_loss_curves.png, id=290, 620.0766pt x 399.6531pt>
 File: figures/bert_toxic_loss_curves.png Graphic file (type png)
 <use figures/bert_toxic_loss_curves.png>
 Package luatex.def Info: figures/bert_toxic_loss_curves.png  used on input line
- 481.
+ 440.
 (luatex.def)             Requested size: 252.0pt x 162.41965pt.
-<figures/bert_toxic_confusion_matrix.png, id=294, 668.4975pt x 498.663pt>
+<figures/bert_toxic_confusion_matrix.png, id=291, 668.4975pt x 498.663pt>
 File: figures/bert_toxic_confusion_matrix.png Graphic file (type png)
 <use figures/bert_toxic_confusion_matrix.png>
 Package luatex.def Info: figures/bert_toxic_confusion_matrix.png  used on input
- line 488.
+ line 447.
 (luatex.def)             Requested size: 252.0pt x 187.97972pt.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
 
-
-
-[8<./figures/bert_finetuned_loss_curves.png><./figures/bert_finetuned_confusion_
-matrix.png><./figures/bert_toxic_loss_curves.png>]
-<figures/bart_toxic_loss_curves.png, id=308, 732.8178pt x 455.301pt>
+<figures/bart_toxic_loss_curves.png, id=296, 732.8178pt x 455.301pt>
 File: figures/bart_toxic_loss_curves.png Graphic file (type png)
 <use figures/bart_toxic_loss_curves.png>
 Package luatex.def Info: figures/bart_toxic_loss_curves.png  used on input line
- 517.
+ 491.
 (luatex.def)             Requested size: 252.0pt x 156.56491pt.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
 
-
-
-
-
-[9<./figures/bert_toxic_confusion_matrix.png><./figures/bart_toxic_loss_curves.p
+[8<./figures/bert_toxic_loss_curves.png><./figures/bert_toxic_confusion_matrix.p
 ng>]
-Underfull \hbox (badness 1924) in paragraph at lines 543--544
+
+
+Underfull \hbox (badness 1924) in paragraph at lines 517--518
 []\T1/lmr/bx/n/10 Real-time Per-for-mance: \T1/lmr/m/n/10 The web ap-pli-ca-tion
 ,
  []
 
 
-Underfull \hbox (badness 1533) in paragraph at lines 555--556
+Underfull \hbox (badness 1533) in paragraph at lines 530--531
 []\T1/lmr/bx/n/10 In-cor-po-rat-ing user feed-back: \T1/lmr/m/n/10 Im-ple-ment-i
 ng a
  []
 
 (./report.bbl
+
+[9<./figures/bart_toxic_loss_curves.png>]
 Underfull \hbox (badness 2318) in paragraph at lines 47--50
 []\T1/lmr/m/n/8 A. Xenos, J. Pavlopou-los, I. An-drout-sopou-los, L. Dixon,
  []
-
-
 
 )
 
@@ -1195,30 +1176,24 @@ Before submitting the final camera ready copy, remember to:
 
 
 
-[leftcolumn badness]: 1000000 on 24.72766pt
-[rightcolumn badness]: 1000000 on 24.72766pt
-[leftcolumn badness]: 1000000 on 24.72766pt
-[rightcolumn badness]: 1000000 on 24.72766pt
-[leftcolumn badness]: 1000000 on 24.72766pt
-[rightcolumn badness]: 1000000 on 24.72766pt
-[leftcolumn badness]: 1000000 on 24.72766pt
-[rightcolumn badness]: 1000000 on 24.72766pt
-[leftcolumn badness]: 1000000 on 24.72766pt
-[rightcolumn badness]: 1000000 on 24.72766pt
-[leftcolumn badness]: 1000000 on 24.72766pt
-[rightcolumn badness]: 1000000 on 24.72766pt
+
+
+[leftcolumn badness]: 1000000 on 16.0pt
+[rightcolumn badness]: 1000000 on 16.0pt
+[leftcolumn badness]: 1000000 on 16.0pt
+[rightcolumn badness]: 1000000 on 16.0pt
 - LAST -
-Extra skip:31.23058pt
-Left:443.47206pt/1.94443pt
-Right:414.18591pt/0.0pt
-Split: 439.0581pt
-Output:439.0581pt
-Pageshrink: 1.0pt
-Pagestretch: 4.0pt
+Extra skip:0.0pt
+Left:147.0pt/1.5555pt
+Right:147.0pt/0.0pt
+Split: 147.5pt
+Output:147.5pt
+Pageshrink: 0.0pt
+Pagestretch: 0.0pt
 @colht:672.0pt
-FLUSHEND [output]: 439.0581pt
-FLUSHEND [leftcolumn badness]: 97
-FUSHEND [rightcolumn badness]: 123
+FLUSHEND [output]: 147.5pt
+FLUSHEND [leftcolumn badness]: 1
+FUSHEND [rightcolumn badness]: 1
 [10] (./report.aux)
  ***********
 LaTeX2e <2025-06-01> patch level 1
@@ -1229,20 +1204,19 @@ L3 programming layer <2025-06-09>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: 8295D7D4E524502A9C607C9DBA8C08EC;8863.
+(rerunfilecheck)             Checksum: EFE0ED9722597B45384E605B8E4E094C;8678.
 )
 
 Here is how much of LuaTeX's memory you used:
- 21542 strings out of 470205
- 195332,953878 words of node,token memory allocated
- 546 words of node memory still in use:
-   6 hlist, 2 vlist, 2 rule, 3 glue, 4 kern, 1 penalty, 1 glyph, 11 attribute, 6
-0 glue_spec, 7 attribute_list, 1 write nodes
-   avail lists: 1:1,2:1265,3:924,4:174,5:1039,6:108,7:19994,8:30,9:647,10:20,11:
-1640
- 49371 multiletter control sequences out of 65536+600000
+ 21548 strings out of 470205
+ 156265,953878 words of node,token memory allocated
+ 541 words of node memory still in use:
+   6 hlist, 2 vlist, 2 rule, 3 glue, 4 kern, 1 penalty, 1 glyph, 11 attribute, 5
+9 glue_spec, 7 attribute_list, 1 write nodes
+   avail lists: 2:1145,3:450,4:88,5:926,6:70,7:16213,8:30,9:540,10:20,11:1625
+ 49381 multiletter control sequences out of 65536+600000
  94 fonts using 7268095 bytes
- 72i,9n,75p,1237b,1057s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 72i,10n,75p,1237b,1100s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {C:/Users/Davide/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc}{C:/
 Users/Davide/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}{C:/User
 s/Davide/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}{C:/User
@@ -1263,9 +1237,9 @@ e/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri8.pfb><C:/Users/Davide
 /AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/Davide
 /AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy7.pfb><C:/Users/Davide/
 AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb>
-Output written on report.pdf (10 pages, 1039567 bytes).
+Output written on report.pdf (10 pages, 1079461 bytes).
 
-PDF statistics: 385 PDF objects out of 1000 (max. 8388607)
- 93 named destinations out of 1000 (max. 131072)
- 361 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 380 PDF objects out of 1000 (max. 8388607)
+ 86 named destinations out of 1000 (max. 131072)
+ 353 words of extra memory for PDF output out of 10000 (max. 100000000)
 
