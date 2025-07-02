@@ -151,7 +151,7 @@ We applied a pipeline consisting of TF-IDF vectorization, dimensionality reducti
 \begin{itemize}
     \item \textbf{TF-IDF Vectorizer}: Extracted unigrams and bigrams to represent the conversations.
     \item \textbf{TruncatedSVD}: Reduced the feature space to latent topics, with the number of components optimized in \{100, 200, 300\}.
-    \item \textbf{Logistic Regression}: Employed \texttt{liblinear} solver and regularization parameter \(C \in \{0.1, 1, 10\}\).
+    \item \textbf{Logistic Regression}: Employed \texttt{lbfgs} solver and regularization parameter \(C \in \{0.1, 1, 10\}\).
 \end{itemize}
 Preprocessing was performed using the same spaCy pipeline as in the binary toxicity classification task, ensuring consistent text normalization. A grid search with 5-fold stratified cross-validation identified the best combination of latent components and regularization strength.
 
@@ -395,7 +395,7 @@ Table~\ref{tab:all_results} provides a comparative summary of the test set perfo
     \toprule
     \textbf{Model} & \textbf{Accuracy} & \textbf{Precision} & \textbf{Recall} & \textbf{F1-score} \\
     \midrule
-    LSA + Log Reg & 0.7395 & 0.7233 & 0.7160 & 0.7113 \\
+    LSA + Log Reg & 0.7363 & 0.7293 & 0.7133 & 0.7080 \\
     BERT + Log Reg & 0.7010 & 0.6840 & 0.6767 & 0.6753 \\
     Fine-tuned BERT & 0.8013 & 0.8093 & 0.7867 & 0.7780 \\
     \bottomrule
