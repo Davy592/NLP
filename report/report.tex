@@ -466,7 +466,7 @@ For ROUGE, we reported the \emph{F1} measure, which balances precision and recal
 
 All metrics were averaged over the test set to provide a global estimate of model performance. The use of both BLEU and ROUGE allowed us to evaluate the generated text along complementary dimensions: BLEU focusing more on precision of n-gram matches, and ROUGE emphasizing recall and sequence fidelity.
 
-The model achieved results as reported in Table~\ref{tab:bart_toxic_generation}. These results indicate that the generated phrases share some lexical overlap with reference toxic phrases, but the relatively low scores reflect the challenge of generating exact matches in open-ended, linguistically varied tasks such as toxic phrase synthesis. The metrics suggest that BART captured some key n-grams and longer subsequences of reference phrases, yet there remains substantial room for improving fluency and semantic alignment.
+The results achieved by the model are shown in Table~\ref{tab:bart_toxic_generation}. These results suggest that the generated phrases exhibit some lexical overlap with the reference toxic phrases; however, the relatively low scores highlight the difficulty of producing exact matches in open-ended, linguistically diverse tasks such as toxic phrase generation. The metrics indicate that BART was able to capture certain key n-grams and longer subsequences from the reference phrases, though there is still considerable room for improvement in terms of fluency and semantic alignment.
 
 \begin{table}[H]
   \centering

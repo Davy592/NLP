@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.22.0 (MiKTeX 25.4) (format=lualatex 2025.6.29)  2 JUL 2025 00:05
+This is LuaHBTeX, Version 1.22.0 (MiKTeX 25.4) (format=lualatex 2025.6.29)  2 JUL 2025 13:11
  system commands enabled.
  file:line:error style messages enabled.
 **c:/Users/Davide/Desktop/NLP/report/report
@@ -1132,16 +1132,17 @@ Package luatex.def Info: figures/bert_toxic_confusion_matrix.png  used on input
 (luatex.def)             Requested size: 252.0pt x 187.97972pt.
 
 
-<figures/bart_toxic_loss_curves.png, id=296, 732.8178pt x 455.301pt>
+
+
+[8<./figures/bert_toxic_loss_curves.png><./figures/bert_toxic_confusion_matrix.p
+ng>]
+<figures/bart_toxic_loss_curves.png, id=309, 732.8178pt x 455.301pt>
 File: figures/bart_toxic_loss_curves.png Graphic file (type png)
 <use figures/bart_toxic_loss_curves.png>
 Package luatex.def Info: figures/bart_toxic_loss_curves.png  used on input line
  491.
 (luatex.def)             Requested size: 252.0pt x 156.56491pt.
 
-
-[8<./figures/bert_toxic_loss_curves.png><./figures/bert_toxic_confusion_matrix.p
-ng>]
 
 
 Underfull \hbox (badness 1924) in paragraph at lines 517--518
@@ -1213,7 +1214,7 @@ Here is how much of LuaTeX's memory you used:
  541 words of node memory still in use:
    6 hlist, 2 vlist, 2 rule, 3 glue, 4 kern, 1 penalty, 1 glyph, 11 attribute, 5
 9 glue_spec, 7 attribute_list, 1 write nodes
-   avail lists: 2:1145,3:450,4:88,5:926,6:70,7:16213,8:30,9:540,10:20,11:1625
+   avail lists: 2:1145,3:450,4:88,5:926,6:70,7:16213,8:30,9:517,10:20,11:1625
  49381 multiletter control sequences out of 65536+600000
  94 fonts using 7268095 bytes
  72i,10n,75p,1237b,1100s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1237,7 +1238,7 @@ e/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri8.pfb><C:/Users/Davide
 /AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/Davide
 /AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy7.pfb><C:/Users/Davide/
 AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb>
-Output written on report.pdf (10 pages, 1079461 bytes).
+Output written on report.pdf (10 pages, 1079683 bytes).
 
 PDF statistics: 380 PDF objects out of 1000 (max. 8388607)
  86 named destinations out of 1000 (max. 131072)
