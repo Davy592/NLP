@@ -1,8 +1,8 @@
-This is LuaHBTeX, Version 1.22.0 (MiKTeX 25.4) (format=lualatex 2025.7.3)  3 JUL 2025 18:08
+This is LuaHBTeX, Version 1.22.0 (MiKTeX 25.4) (format=lualatex 2025.7.3)  3 JUL 2025 19:14
  system commands enabled.
  file:line:error style messages enabled.
-**c:/Users/Davide/Desktop/NLP/Presentation+/presentation
-(c:/Users/Davide/Desktop/NLP/Presentation+/presentation.tex
+**c:/Users/Davide/Desktop/NLP/Presentation/presentation
+(c:/Users/Davide/Desktop/NLP/Presentation/presentation.tex
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-06-09>
 Lua module: luaotfload 2024-12-03 v3.29 Lua based OpenType font support
@@ -1538,7 +1538,7 @@ al, 10 pdf_colorstack nodes
    avail lists: 2:2179,3:569,4:274,5:185,6:57,7:2782,8:30,9:519,10:16,11:250
  53643 multiletter control sequences out of 65536+600000
  84 fonts using 47832559 bytes
- 128i,11n,116p,424b,789s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 128i,11n,116p,423b,789s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/WINDOWS/Fonts/seguiemj.ttf><c:/users/davide/appdata/local/programs/miktex/fo
 nts/opentype/public/lm/lmsans9-regular.otf><c:/users/davide/appdata/local/progra
 ms/miktex/fonts/opentype/public/lm/lmmono10-regular.otf><c:/users/davide/appdata
@@ -1553,7 +1553,7 @@ grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Davide/AppData/L
 ocal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Davide/Ap
 pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/
 Davide/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on presentation.pdf (28 pages, 643194 bytes).
+Output written on presentation.pdf (28 pages, 643202 bytes).
 
 PDF statistics: 331 PDF objects out of 1000 (max. 8388607)
  70 named destinations out of 1000 (max. 131072)

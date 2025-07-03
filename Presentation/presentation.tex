@@ -237,7 +237,7 @@ Classify the conversational dynamic between two participants into one of 15 pred
 \begin{itemize}
 \item Unigrams and bigrams TF-IDF
 \item SVD components: 100, 200, 300 (grid search)
-\item Logistic Regression: $C \in \{0.1, 1, 10\}$ (liblinear solver)
+\item Logistic Regression: $C \in \{0.1, 1, 10\}$ (lbfgs solver)
 \end{itemize}
 \end{block}
 
@@ -604,9 +604,9 @@ ROUGE-L F1 & 0.2987 \\
 
 \begin{block}{Key contributions}
 \begin{itemize}
+\item Created balanced dataset (\textasciitilde 1550 dialogues, annotated toxic phrases).
 \item Combined toxicity detection and couple dynamics classification for Italian dialogues.
 \item Integrated classical ML and transformer models for multi-task learning.
-\item Created balanced dataset (\textasciitilde 1550 dialogues, annotated toxic phrases).
 \item Developed interactive web app for real-time predictions.
 \end{itemize}
 \end{block}
