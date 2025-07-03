@@ -230,7 +230,7 @@ To facilitate interactive experimentation and demonstration of the proposed mode
 
 \subsubsection{Architecture and Components}
 \begin{itemize}
-    \item \textbf{Couple dynamics classification:} The application uses a fine-tuned BERT model (\texttt{dbmdz/bert-base-italian-uncased}) to classify the overall interaction pattern between two individuals based on their dialogue history. The classifier outputs one of 15 predefined relationship dynamics labels. The model produces class probabilities via a softmax layer, from which the most probable label and its confidence score are extracted.
+    \item \textbf{Couple dynamics prediction:} The application uses a fine-tuned BERT model (\texttt{dbmdz/bert-base-italian-uncased}) to classify the overall interaction pattern between two individuals based on their dialogue history. The classifier outputs one of 15 predefined relationship dynamics labels. The model produces class probabilities via a softmax layer, from which the most probable label and its confidence score are extracted.
     
     \item \textbf{Toxic sentence classification:} A second fine-tuned BERT model identifies the most toxic sentence within the conversation. Each message is encoded together with the predicted couple dynamics as context. The model assigns a toxicity probability to each message, and the sentence with the highest probability is selected.
     
@@ -261,7 +261,7 @@ The system provides both the predicted couple dynamics (including a binary toxic
 
 \section{Results}
 
-In this section, we present the results of our experiments on toxicity detection, couple dynamics classification, and most toxic sentence detection.
+In this section, we present the results of our experiments on toxicity detection, couple dynamics prediction, and most toxic sentence detection.
 
 \subsection{Binary Toxicity Classification}
 
@@ -336,9 +336,9 @@ Following there are the confusion matrices for each model configuration, which i
 
 Both models achieved near-perfect performance, indicating strong separability between toxic and non-toxic samples. SpaCy preprocessing slightly reduced performance in logistic regression (from 0.9968 to 0.9936), likely due to the removal of informative lexical features. Multinomial Naive Bayes showed robustness across both configurations. These results suggest that simple ML models paired with TF‑IDF can be highly effective in this binary classification task when sufficient data is available.
 
-\subsection{Couple Dynamics Classification}
+\subsection{Couple Dynamics Prediction}
 
-In this section, we compare the performance of three approaches applied to the couple dynamics classification task: (i) LSA + Logistic Regression, (ii) BERT embeddings with Logistic Regression, and (iii) fine-tuned BERT.
+In this section, we compare the performance of three approaches applied to the couple dynamics prediction task: (i) LSA + Logistic Regression, (ii) BERT embeddings with Logistic Regression, and (iii) fine-tuned BERT.
 
 \subsubsection{LSA + Logistic Regression}
 \noindent
@@ -499,7 +499,7 @@ In this report, we presented a comprehensive approach to toxicity detection, cou
 
 We successfully generated a synthetic dataset of Italian conversations, which was used to train and evaluate our models. The binary toxicity classification task demonstrated that classical machine learning models, such as Logistic Regression and Multinomial Naive Bayes, can achieve nearly perfect accuracy even without extensive text preprocessing.
 
-The couple dynamics classification task highlighted the effectiveness of fine-tuned BERT models in capturing complex relational patterns, achieving an accuracy of 80.13\%.
+The couple dynamics prediction task highlighted the effectiveness of fine-tuned BERT models in capturing complex relational patterns, achieving an accuracy of 80.13\%.
 
 The most toxic sentence detection task showcased the strengths and limitations of both classification and generation approaches. The BERT-based classifier achieved high accuracy but struggled with class imbalance, while the BART generator produced reasonable toxic phrases with some lexical overlap to human-labeled references.
 

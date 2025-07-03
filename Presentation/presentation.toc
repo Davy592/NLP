@@ -8,7 +8,7 @@
 \beamer@subsectionintoc {3}{4}{Web Application}{14}{0}{3}
 \beamer@sectionintoc {4}{Results}{15}{0}{4}
 \beamer@subsectionintoc {4}{1}{Binary Toxicity Classification}{15}{0}{4}
-\beamer@subsectionintoc {4}{2}{Personality Classification}{18}{0}{4}
+\beamer@subsectionintoc {4}{2}{Couple Dynamics Prediction}{18}{0}{4}
 \beamer@subsectionintoc {4}{3}{Most Toxic Sentence Detection}{21}{0}{4}
 \beamer@subsectionintoc {4}{4}{Web Application}{25}{0}{4}
 \beamer@sectionintoc {5}{Conclusion}{26}{0}{5}

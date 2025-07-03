@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.22.0 (MiKTeX 25.4) (format=lualatex 2025.7.3)  3 JUL 2025 19:14
+This is LuaHBTeX, Version 1.22.0 (MiKTeX 25.4) (format=lualatex 2025.7.3)  3 JUL 2025 19:31
  system commands enabled.
  file:line:error style messages enabled.
 **c:/Users/Davide/Desktop/NLP/Presentation/presentation
@@ -1525,7 +1525,7 @@ L3 programming layer <2025-06-09>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `presentation.out' has not changed.
-(rerunfilecheck)             Checksum: 691E3CCBAE087B47FADD7DB5D97A77B1;2017.
+(rerunfilecheck)             Checksum: 62D44A688955E816029B865678746CB1;2020.
 )
 
 Here is how much of LuaTeX's memory you used:
@@ -1553,7 +1553,7 @@ grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Davide/AppData/L
 ocal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Davide/Ap
 pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/
 Davide/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on presentation.pdf (28 pages, 643202 bytes).
+Output written on presentation.pdf (28 pages, 643192 bytes).
 
 PDF statistics: 331 PDF objects out of 1000 (max. 8388607)
  70 named destinations out of 1000 (max. 131072)
