@@ -1,41 +1,71 @@
-\documentclass{beamer}
+\documentclass[aspectratio=169,xcolor=dvipsnames]{beamer}
+
+%----------------------------------------------------------------------------------------
+%    PACKAGES AND THEMES
+%----------------------------------------------------------------------------------------
+
+\usetheme{SimplePlus}
+% Definizione di un ambiente personalizzato simile a "examples" ma con titolo variabile
+\newenvironment{customexampleblock}[1]{%
+  \setbeamercolor{block title}{bg=Green, fg=white} % Colore del titolo (come in 'examples')
+  \setbeamercolor{block body}{bg=Green!10, fg=black} % Colore del corpo (un verde chiaro)
+  \begin{block}{#1}
+}{%
+  \end{block}
+}
+
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[english]{babel}
 \usepackage{amsmath, amssymb}
-\usepackage{graphicx}
-\usepackage{booktabs}
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
 \usepackage{multirow}
-\usepackage{xcolor}
 \usepackage{hyperref}
-\usepackage{tikz}
-\usetikzlibrary{shapes.geometric}
-\usepackage{adjustbox}
+\usepackage{fontspec}
+% Carica il font delle emoji di Windows 11
+\newfontface{\fluentemoji}{Segoe UI Emoji}[Renderer=HarfBuzz]
 
-% Presentation theme
-\usetheme{Madrid}
-\usecolortheme{default}
+% Crea un comando per usare facilmente le emoji
+\newcommand{\emoji}[1]{{\fluentemoji #1}}
 
-% Custom colors
-\definecolor{darkblue}{RGB}{0,102,204}
-\definecolor{lightblue}{RGB}{173,216,230}
-\definecolor{darkgreen}{RGB}{0,128,0}
-\definecolor{lightgreen}{RGB}{144,238,144}
-\definecolor{darkred}{RGB}{139,0,0}
-\definecolor{lightred}{RGB}{255,182,193}
+% Crea un comando specifico per il razzo per comodità
+\newcommand{\rocket}{\emoji{🚀}}
 
-% Title information
+%----------------------------------------------------------------------------------------
+%    TITLE PAGE
+%----------------------------------------------------------------------------------------
+
 \title{Toxicity, couple dynamics and most toxic sentence detection in Italian conversations using classical machine learning models and transformer-based models}
+\subtitle{} % No subtitle in the original, left empty
+
 \author{Davide Cirilli}
-\institute{Università degli Studi di Bari Aldo Moro}
-\date{}
+
+\institute
+{
+    Università degli Studi di Bari Aldo Moro
+}
+\date{} % Date left empty as in the original
+
+%----------------------------------------------------------------------------------------
+%    PRESENTATION SLIDES
+%----------------------------------------------------------------------------------------
 
 \begin{document}
 
-% Title slide
-\frame{\titlepage}
+\begin{frame}
+    % Print the title page as the first slide
+    \titlepage
+\end{frame}
 
+\begin{frame}{Overview}
+    % The \tableofcontents command will automatically list your sections and subsections
+    \tableofcontents
+\end{frame}
+
+%------------------------------------------------
 \section{Introduction and Motivations}
+%------------------------------------------------
 
 \begin{frame}
 \frametitle{Context and Goals}
@@ -58,7 +88,9 @@
 
 \end{frame}
 
+%------------------------------------------------
 \section{Dataset}
+%------------------------------------------------
 
 \begin{frame}
 \frametitle{Preprocessing and Generation Settings}
@@ -71,18 +103,18 @@
 \end{itemize}
 \end{block}
 
-\begin{exampleblock}{Non-toxic data generation and parameters}
+\begin{customexampleblock}{Non-toxic data generation and parameters}
 \begin{itemize}
 \item \textbf{Model}: \textbf{gemini-2.0-flash-lite} via \textbf{API + Google AI Studio}
 \item \textbf{Generation Settings}:
 \begin{itemize}
-\item \textbf{Temperature}: 1.8 - Encourages diverse and creative responses, suitable for generating varied conversational styles
-\item \textbf{Top-p}: 1.0 - Ensures all tokens are considered, allowing for maximum flexibility in generation
-\item \textbf{Top-k}: 0 - Disables top-k filtering, relying solely on nucleus sampling for token selection
+\item \textbf{Temperature}: 1.8
+\item \textbf{Top-p}: 1.0
+\item \textbf{Top-k}: 0
 \item \textbf{Safety filters}: BLOCK\_MEDIUM\_AND\_ABOVE (harassment, hate speech, explicit, dangerous)
 \end{itemize}
 \end{itemize}
-\end{exampleblock}
+\end{customexampleblock}
 
 \end{frame}
 
@@ -107,7 +139,9 @@
 
 \end{frame}
 
+%------------------------------------------------
 \section{Approach}
+%------------------------------------------------
 
 \subsection{Binary Toxic Classification}
 
@@ -138,7 +172,7 @@ Classify conversations as \textbf{toxic} or \textbf{non-toxic} based on dialogue
 \end{itemize}
 \end{block}
 
-\begin{exampleblock}{Training parameters}
+\begin{customexampleblock}{Training parameters}
 \begin{itemize}
 \item 80-20 stratified train/test split
 \item Grid search + 5-fold stratified CV
@@ -146,7 +180,7 @@ Classify conversations as \textbf{toxic} or \textbf{non-toxic} based on dialogue
 \item Logistic Regression: tuned $C \in \{0.1, 1, 10\}$
 \item Naive Bayes: tuned $\alpha \in \{0.1, 1\}$
 \end{itemize}
-\end{exampleblock}
+\end{customexampleblock}
 
 \end{frame}
 
@@ -214,14 +248,14 @@ Classify the conversational dynamic between two participants into one of 15 pred
 \end{itemize}
 \end{block}
 
-\begin{exampleblock}{Fine-tuned BERT}
+\begin{customexampleblock}{Fine-tuned BERT}
 \begin{itemize}
 \item Adam + weight decay, learning rate warmup
 \item Batch size: 8, max length: 512
 \item Up to 7 epochs, early stopping (patience = 2)
 \item Evaluation: accuracy, macro precision, recall, F1
 \end{itemize}
-\end{exampleblock}
+\end{customexampleblock}
 
 \end{frame}
 
@@ -264,7 +298,7 @@ Fine-tuned BERT (\texttt{dbmdz/bert-base-italian-uncased})
 \end{itemize}
 \end{block}
 
-\begin{exampleblock}{Training configuration}
+\begin{customexampleblock}{Training configuration}
 \begin{itemize}
 \item Max length: 128 tokens
 \item Batch size: 32, learning rate: $2 \times 10^{-5}$
@@ -272,7 +306,7 @@ Fine-tuned BERT (\texttt{dbmdz/bert-base-italian-uncased})
 \item Up to 7 epochs, early stopping (patience = 2)
 \item Stratified 80/10/10 split: train/val/test
 \end{itemize}
-\end{exampleblock}
+\end{customexampleblock}
 
 \end{frame}
 
@@ -291,14 +325,14 @@ Fine-tuned BART (\texttt{facebook/bart-base})
 \end{itemize}
 \end{block}
 
-\begin{exampleblock}{Training configuration}
+\begin{customexampleblock}{Training configuration}
 \begin{itemize}
 \item Max input length: 512 tokens, output: 64 tokens
 \item Batch size: 4, learning rate: $3 \times 10^{-5}$
 \item Early stopping (patience = 2)
 \item GroupShuffleSplit to avoid similar conversations across sets
 \end{itemize}
-\end{exampleblock}
+\end{customexampleblock}
 
 \end{frame}
 
@@ -328,7 +362,9 @@ Fine-tuned BART (\texttt{facebook/bart-base})
 
 \end{frame}
 
+%------------------------------------------------
 \section{Results}
+%------------------------------------------------
 
 \subsection{Binary Toxicity Classification}
 
@@ -337,10 +373,9 @@ Fine-tuned BART (\texttt{facebook/bart-base})
 
 \begin{table}
 \centering
-\footnotesize
 \begin{tabular}{lcccc}
 \toprule
-Model & Accuracy & Precision & Recall & F1 \\
+\textbf{Model} & \textbf{Accuracy} & \textbf{Precision} & \textbf{Recall} & \textbf{F1} \\
 \midrule
 Logistic Regression (raw) & 0.9968 & 0.9968 & 0.9968 & 0.9968 \\
 Naive Bayes (raw) & 0.9968 & 0.9968 & 0.9968 & 0.9968 \\
@@ -361,7 +396,7 @@ Naive Bayes (spaCy) & 0.9968 & 0.9968 & 0.9968 & 0.9968 \\
 \begin{frame}
 \frametitle{Binary Toxicity Classification: Confusion Matrices (Raw Text)}
 
-\begin{columns}
+\begin{columns}[c]
 \begin{column}{0.5\textwidth}
 \begin{figure}
 \centering
@@ -384,7 +419,7 @@ Naive Bayes (spaCy) & 0.9968 & 0.9968 & 0.9968 & 0.9968 \\
 \begin{frame}
 \frametitle{Binary Toxicity Classification: Confusion Matrices (spaCy Processed)}
 
-\begin{columns}
+\begin{columns}[c]
 \begin{column}{0.5\textwidth}
 \begin{figure}
 \centering
@@ -411,10 +446,9 @@ Naive Bayes (spaCy) & 0.9968 & 0.9968 & 0.9968 & 0.9968 \\
 
 \begin{table}
 \centering
-\footnotesize
 \begin{tabular}{lcccc}
 \toprule
-Approach & Accuracy & Precision & Recall & F1 \\
+\textbf{Approach} & \textbf{Accuracy} & \textbf{Precision} & \textbf{Recall} & \textbf{F1} \\
 \midrule
 LSA + Logistic Regression & 0.7395 & 0.7233 & 0.7160 & 0.7113 \\
 Frozen BERT + Logistic Regression & 0.7010 & 0.6840 & 0.6767 & 0.6753 \\
@@ -434,19 +468,20 @@ Fine-tuned BERT & 0.8013 & 0.8093 & 0.7867 & 0.7780 \\
 \begin{frame}
 \frametitle{Couple Dynamics Prediction: Confusion Matrices}
 
-\begin{figure}
-\centering
-\begin{minipage}{0.5\textwidth}
-\centering
-\includegraphics[width=\linewidth]{figures/lsa_logreg_confusion_matrix.png}
-\caption{Confusion matrix - LSA + Logistic Regression}
-\end{minipage}%
-\begin{minipage}{0.5\textwidth}
-\centering
-\includegraphics[width=\linewidth]{figures/bert_finetuned_confusion_matrix.png}
-\caption{Confusion matrix - Fine-tuned BERT}
-\end{minipage}
-\end{figure}
+\begin{columns}[c]
+\column{0.5\textwidth}
+    \begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{figures/lsa_logreg_confusion_matrix.png}
+    \caption{Confusion matrix - LSA + Logistic Regression}
+    \end{figure}
+\column{0.5\textwidth}
+    \begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{figures/bert_finetuned_confusion_matrix.png}
+    \caption{Confusion matrix - Fine-tuned BERT}
+    \end{figure}
+\end{columns}
 
 \end{frame}
 
@@ -455,7 +490,7 @@ Fine-tuned BERT & 0.8013 & 0.8093 & 0.7867 & 0.7780 \\
 
 \begin{figure}
 \centering
-\includegraphics[width=0.7\linewidth]{figures/bert_finetuned_loss_curves.png}
+\includegraphics[width=0.6\linewidth]{figures/bert_finetuned_loss_curves.png}
 \caption{Training and validation loss during fine-tuning}
 \end{figure}
 
@@ -473,10 +508,9 @@ Fine-tuned BERT & 0.8013 & 0.8093 & 0.7867 & 0.7780 \\
 
 \begin{table}
 \centering
-\footnotesize
 \begin{tabular}{lcccc}
 \toprule
-Class & Precision & Recall & F1-score & Support \\
+\textbf{Class} & \textbf{Precision} & \textbf{Recall} & \textbf{F1-score} & \textbf{Support} \\
 \midrule
 Non-Toxic & 0.9077 & 0.9558 & 0.9311 & 679 \\
 Toxic & 0.3617 & 0.2048 & 0.2615 & 83 \\
@@ -501,7 +535,7 @@ Weighted avg & 0.8482 & 0.8740 & 0.8582 & 762 \\
 
 \begin{figure}
 \centering
-\includegraphics[width=0.7\linewidth]{figures/bert_toxic_confusion_matrix.png}
+\includegraphics[width=0.6\linewidth]{figures/bert_toxic_confusion_matrix.png}
 \caption{Confusion matrix - BERT classification model}
 \end{figure}
 
@@ -512,10 +546,9 @@ Weighted avg & 0.8482 & 0.8740 & 0.8582 & 762 \\
 
 \begin{table}
 \centering
-\footnotesize
 \begin{tabular}{lc}
 \toprule
-Metric & Score \\
+\textbf{Metric} & \textbf{Score} \\
 \midrule
 BLEU & 0.1706 \\
 ROUGE-1 F1 & 0.3031 \\
@@ -538,11 +571,11 @@ ROUGE-L F1 & 0.2987 \\
 
 \begin{figure}
 \centering
-\includegraphics[width=0.7\linewidth]{figures/bart_toxic_loss_curves.png}
+\includegraphics[width=0.6\linewidth]{figures/bart_toxic_loss_curves.png}
 \caption{Training and validation loss - BART generation model}
 \end{figure}
 
-\vspace{0.2cm}
+\vspace{0.1cm}
 \begin{center}
 \colorbox{yellow!10}{\parbox{0.75\linewidth}{\centering Stable validation loss; no major overfitting detected}}
 \end{center}
@@ -556,13 +589,15 @@ ROUGE-L F1 & 0.2987 \\
 
 \begin{figure}
 \centering
-\includegraphics[width=0.75\linewidth]{figures/web_app_interface_used.png}
+\includegraphics[width=0.55\linewidth]{figures/web_app_interface_used.png}
 \caption{Screenshot of the interactive web interface}
 \end{figure}
 
 \end{frame}
 
+%------------------------------------------------
 \section{Conclusion}
+%------------------------------------------------
 
 \begin{frame}
 \frametitle{Key Contributions and Results Summary}
@@ -587,15 +622,10 @@ ROUGE-L F1 & 0.2987 \\
 
 \end{frame}
 
-
-
-
-\section{Conclusion}
-
 \begin{frame}
 \frametitle{Current Limitations \& Future Directions}
 
-\begin{columns}
+\begin{columns}[c]
 \begin{column}{0.48\textwidth}
 \textbf{Current Limitations}
 \begin{itemize}
@@ -626,17 +656,19 @@ Code and dataset available on GitHub: \\
 \end{frame}
 
 \begin{frame}
-\frametitle{Thank You for Your Attention}
+\frametitle{Thank You for Your Attention\rocket}
 
 \begin{center}
 
 \vspace{1cm}
-\Large{Davide Cirilli}\\
+\Large{\textbf{Davide Cirilli}}\\
 \normalsize{d.cirilli2@studenti.uniba.it}
 
 \vspace{0.5cm}
 \normalsize{Università degli Studi di Bari Aldo Moro}
 \end{center}
 \end{frame}
+
+%----------------------------------------------------------------------------------------
 
 \end{document}
