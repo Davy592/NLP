@@ -1,0 +1,15 @@
+\babel@toc {english}{}\relax 
+\beamer@sectionintoc {1}{Introduction and Motivations}{2}{0}{1}
+\beamer@sectionintoc {2}{Dataset}{3}{0}{2}
+\beamer@sectionintoc {3}{Approach}{5}{0}{3}
+\beamer@subsectionintoc {3}{1}{Binary Toxic Classification}{5}{0}{3}
+\beamer@subsectionintoc {3}{2}{Couple Dynamics Prediction}{7}{0}{3}
+\beamer@subsectionintoc {3}{3}{Most Toxic Sentence Detection}{10}{0}{3}
+\beamer@subsectionintoc {3}{4}{Web Application}{13}{0}{3}
+\beamer@sectionintoc {4}{Results}{14}{0}{4}
+\beamer@subsectionintoc {4}{1}{Binary Toxicity Classification}{14}{0}{4}
+\beamer@subsectionintoc {4}{2}{Personality Classification}{17}{0}{4}
+\beamer@subsectionintoc {4}{3}{Most Toxic Sentence Detection}{20}{0}{4}
+\beamer@subsectionintoc {4}{4}{Web Application}{24}{0}{4}
+\beamer@sectionintoc {5}{Conclusion}{25}{0}{5}
+\beamer@sectionintoc {6}{Conclusion}{26}{0}{6}
