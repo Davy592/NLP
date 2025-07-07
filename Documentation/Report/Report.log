@@ -1,8 +1,11 @@
-This is LuaHBTeX, Version 1.22.0 (MiKTeX 25.4) (format=lualatex 2025.7.3)  3 JUL 2025 19:33
+This is LuaHBTeX, Version 1.22.0 (MiKTeX 25.4) (format=lualatex 2025.7.3)  8 JUL 2025 01:25
  system commands enabled.
  file:line:error style messages enabled.
-**c:/Users/Davide/Desktop/NLP/report/report
-(c:/Users/Davide/Desktop/NLP/report/report.tex
+**"d:/Uni/2. Magistrale/1° anno/2° semestre/Natural Language Processing/Task/
+Exam/Report/Report"
+
+("d:/Uni/2. Magistrale/1° anno/2° semestre/Natural Language Processing/Task/E
+xam/Report/Report.tex"
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-06-09>
 Lua module: luaotfload 2024-12-03 v3.29 Lua based OpenType font support
@@ -810,8 +813,8 @@ File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 atex.def
 File: l3backend-luatex.def 2025-06-09 L3 backend support: PDF output (LuaTeX)
 \l__color_backend_stack_int=\count359
-Inserting `l3color' in `luaotfload.parse_color'.) (./report.aux)
-\openout1 = report.aux
+Inserting `l3color' in `luaotfload.parse_color'.) (./Report.aux)
+\openout1 = Report.aux
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 40.
 LaTeX Font Info:    ... okay on input line 40.
@@ -862,10 +865,10 @@ cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
 Package hyperref Info: Link coloring OFF on input line 40.
- (./report.out) (./report.out)
+ (./Report.out) (./Report.out)
 \@outlinefile=\write3
 
-\openout3 = report.out
+\openout3 = Report.out
 
 (C:/Users/Davide/AppData/Local/Programs/MiKTeX/tex/latex/translations/dicts/tra
 nslations-basic-dictionary-english.trsl
@@ -1162,7 +1165,7 @@ Underfull \hbox (badness 1533) in paragraph at lines 530--531
 ng a
  []
 
-(./report.bbl
+(./Report.bbl
 
 [9<./figures/bart_toxic_loss_curves.png>]
 Underfull \hbox (badness 2318) in paragraph at lines 47--50
@@ -1201,7 +1204,7 @@ Pagestretch: 0.0pt
 FLUSHEND [output]: 147.5pt
 FLUSHEND [leftcolumn badness]: 1
 FUSHEND [rightcolumn badness]: 1
-[10] (./report.aux)
+[10] (./Report.aux)
  ***********
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-06-09>
@@ -1210,7 +1213,7 @@ L3 programming layer <2025-06-09>
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package rerunfilecheck Info: File `report.out' has not changed.
+Package rerunfilecheck Info: File `Report.out' has not changed.
 (rerunfilecheck)             Checksum: 72976A77B2654D49A59A6E8096BDE11B;8658.
 )
 
@@ -1223,7 +1226,7 @@ Here is how much of LuaTeX's memory you used:
    avail lists: 2:1145,3:450,4:88,5:926,6:70,7:16213,8:30,9:517,10:20,11:1625
  49381 multiletter control sequences out of 65536+600000
  94 fonts using 7268095 bytes
- 72i,10n,75p,1237b,1100s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 72i,10n,75p,1292b,1100s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {C:/Users/Davide/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc}{C:/
 Users/Davide/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}{C:/User
 s/Davide/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}{C:/User
@@ -1244,7 +1247,7 @@ e/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri8.pfb><C:/Users/Davide
 /AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/Davide
 /AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy7.pfb><C:/Users/Davide/
 AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb>
-Output written on report.pdf (10 pages, 1079649 bytes).
+Output written on Report.pdf (10 pages, 1079649 bytes).
 
 PDF statistics: 380 PDF objects out of 1000 (max. 8388607)
  86 named destinations out of 1000 (max. 131072)

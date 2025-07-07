@@ -1,8 +1,11 @@
-This is LuaHBTeX, Version 1.22.0 (MiKTeX 25.4) (format=lualatex 2025.7.3)  3 JUL 2025 19:31
+This is LuaHBTeX, Version 1.22.0 (MiKTeX 25.4) (format=lualatex 2025.7.3)  8 JUL 2025 01:24
  system commands enabled.
  file:line:error style messages enabled.
-**c:/Users/Davide/Desktop/NLP/Presentation/presentation
-(c:/Users/Davide/Desktop/NLP/Presentation/presentation.tex
+**"d:/Uni/2. Magistrale/1° anno/2° semestre/Natural Language Processing/Task/
+Exam/Presentation/Presentation"
+
+("d:/Uni/2. Magistrale/1° anno/2° semestre/Natural Language Processing/Task/E
+xam/Presentation/Presentation.tex"
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-06-09>
 Lua module: luaotfload 2024-12-03 v3.29 Lua based OpenType font support
@@ -1047,8 +1050,8 @@ fBuzz].
 (fontspec)             - 'normal' (m/n) with NFSS spec.: <->"name:Segoe UI
 (fontspec)             Emoji:mode=harf;script=latn;language=dflt;"
 
- (./presentation.aux)
-\openout1 = presentation.aux
+ (./Presentation.aux)
+\openout1 = Presentation.aux
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 54.
 LaTeX Font Info:    ... okay on input line 54.
@@ -1132,10 +1135,10 @@ cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
 Package hyperref Info: Link coloring OFF on input line 54.
- (./presentation.out) (./presentation.out)
+ (./Presentation.out) (./Presentation.out)
 \@outlinefile=\write5
 
-\openout5 = presentation.out
+\openout5 = Presentation.out
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 54.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
@@ -1261,12 +1264,12 @@ LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
 (Font)                  TU/lmss/b/n --> TU/lmss/b/n on input line 54.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 (Font)                  TU/lmtt/b/n --> TU/lmtt/b/n on input line 54.
- (./presentation.nav)
+ (./Presentation.nav)
 
 [1
 
 {C:/Users/Davide/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
-(./presentation.toc)
+(./Presentation.toc)
 
 [2
 
@@ -1508,14 +1511,14 @@ LaTeX Font Warning: Font shape `TU/SegoeUIEmoji(0)/bx/n' undefined
 ]
 \tf@nav=\write6
 
-\openout6 = presentation.nav
+\openout6 = Presentation.nav
 \tf@toc=\write7
 
-\openout7 = presentation.toc
+\openout7 = Presentation.toc
 \tf@snm=\write8
 
-\openout8 = presentation.snm
- (./presentation.aux)
+\openout8 = Presentation.snm
+ (./Presentation.aux)
  ***********
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-06-09>
@@ -1524,7 +1527,7 @@ L3 programming layer <2025-06-09>
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package rerunfilecheck Info: File `presentation.out' has not changed.
+Package rerunfilecheck Info: File `Presentation.out' has not changed.
 (rerunfilecheck)             Checksum: 62D44A688955E816029B865678746CB1;2020.
 )
 
@@ -1538,7 +1541,7 @@ al, 10 pdf_colorstack nodes
    avail lists: 2:2179,3:569,4:274,5:185,6:57,7:2782,8:30,9:519,10:16,11:250
  53643 multiletter control sequences out of 65536+600000
  84 fonts using 47832559 bytes
- 128i,11n,116p,423b,789s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 128i,11n,116p,478b,789s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/WINDOWS/Fonts/seguiemj.ttf><c:/users/davide/appdata/local/programs/miktex/fo
 nts/opentype/public/lm/lmsans9-regular.otf><c:/users/davide/appdata/local/progra
 ms/miktex/fonts/opentype/public/lm/lmmono10-regular.otf><c:/users/davide/appdata
@@ -1553,7 +1556,7 @@ grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Davide/AppData/L
 ocal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Davide/Ap
 pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/
 Davide/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on presentation.pdf (28 pages, 643192 bytes).
+Output written on Presentation.pdf (28 pages, 643192 bytes).
 
 PDF statistics: 331 PDF objects out of 1000 (max. 8388607)
  70 named destinations out of 1000 (max. 131072)
